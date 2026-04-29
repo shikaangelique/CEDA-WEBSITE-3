@@ -1,0 +1,45 @@
+:root {
+  /* Core backgrounds */
+  --color-bg: #0a0c0a;
+  --color-bg-soft: #11150f;
+  --color-bg-card: #181d16;
+  --color-bg-elevated: #20261d;
+
+  /* Lines */
+  --color-line: #232a1f;
+  --color-line-strong: #303a29;
+
+  /* Text */
+  --color-text: #e8ebd9;
+  --color-text-muted: #c4c8b3;
+  --color-text-faint: #898f78;
+  --color-text-dim: #585e4d;
+
+  /* Accents */
+  --color-accent: #6bb578;
+  --color-accent-bright: #88cb93;
+  --color-accent-dim: #355a3c;
+  --color-secondary: #c9c577;
+  --color-secondary-bright: #ddd98b;
+  --color-rose: #c47a6a;
+
+  /* Typography */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Layout */
+  --site-max: 1280px;
+  --container-x: clamp(1.5rem, 4vw, 3rem);
+  --section-y: clamp(5rem, 10vw, 9rem);
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+}

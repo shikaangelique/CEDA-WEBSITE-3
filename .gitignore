@@ -1,0 +1,14 @@
+# Node
+node_modules
+dist
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Mac
+.DS_Store
+
+# Large / unnecessary
+source-assets/raw/

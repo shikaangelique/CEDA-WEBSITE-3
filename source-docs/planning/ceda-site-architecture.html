@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEDA · Site Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0d0b;
+  --bg-2: #161410;
+  --bg-3: #1f1c17;
+  --line: #2a2620;
+  --line-2: #3a342b;
+  --ink: #ece6d8;
+  --ink-2: #c8c0ad;
+  --ink-3: #8c8472;
+  --ink-4: #5d5749;
+  --accent: #d4a955;
+  --accent-2: #e9c578;
+  --accent-dim: #6f5832;
+  --rose: #c47a6a;
+  --teal: #7eb8a8;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212, 169, 85, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(126, 184, 168, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(14, 13, 11, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.topbar .brand {
+  color: var(--ink);
+  font-weight: 500;
+}
+.topbar .meta { color: var(--ink-3); }
+.topbar nav { display: flex; gap: 28px; }
+.topbar nav a {
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.topbar nav a:hover { color: var(--accent); }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 48px 80px;
+}
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero .eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 14ch;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.hero .lede {
+  max-width: 56ch;
+  font-size: 18px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-bottom: 48px;
+}
+.hero .meta-row {
+  display: flex;
+  gap: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.hero .meta-row strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+.section-head {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  align-items: start;
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  padding-top: 12px;
+}
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.section-head p {
+  color: var(--ink-2);
+  max-width: 60ch;
+  font-size: 16px;
+}
+.section-body {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+}
+
+/* ===== SITE MAP TREE ===== */
+.tree {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px 40px;
+  color: var(--ink-2);
+  line-height: 2;
+  position: relative;
+  overflow-x: auto;
+}
+.tree::before {
+  content: 'pages';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  background: var(--bg);
+  padding: 0 10px;
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+.tree .route {
+  color: var(--accent);
+}
+.tree .route-meta {
+  color: var(--ink-4);
+  font-size: 11px;
+  margin-left: 12px;
+}
+.tree .branch { color: var(--ink-4); }
+.tree .indent-1 { padding-left: 24px; }
+.tree .indent-2 { padding-left: 48px; }
+
+/* ===== LAYER STACK ===== */
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.layer {
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+  transition: background 0.2s;
+}
+.layer:last-child { border-bottom: none; }
+.layer:hover { background: var(--bg-2); }
+.layer-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+.layer-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: -2px;
+  margin-bottom: 6px;
+}
+.layer-tech {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+.layer-desc {
+  color: var(--ink-2);
+  font-size: 15px;
+  max-width: 70ch;
+}
+
+/* Layer-specific accents */
+.layer.l-shell { background: linear-gradient(90deg, rgba(212, 169, 85, 0.04), transparent 60%); }
+.layer.l-pages { background: linear-gradient(90deg, rgba(212, 169, 85, 0.025), transparent 60%); }
+.layer.l-components { background: linear-gradient(90deg, rgba(212, 169, 85, 0.015), transparent 60%); }
+.layer.l-data { background: linear-gradient(90deg, rgba(126, 184, 168, 0.04), transparent 60%); }
+.layer.l-storage { background: linear-gradient(90deg, rgba(196, 122, 106, 0.03), transparent 60%); }
+
+/* Down-arrow between layers */
+.layer-arrow {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  color: var(--ink-4);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ===== MODULE GRID ===== */
+.module-group {
+  margin-bottom: 80px;
+}
+.module-group-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.module-group-title .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.module-group-title.data .dot { background: var(--teal); }
+.module-group-title.storage .dot { background: var(--rose); }
+.module-group-blurb {
+  color: var(--ink-3);
+  font-size: 14px;
+  margin-bottom: 32px;
+  max-width: 65ch;
+}
+.modules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.module {
+  background: var(--bg-2);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background 0.2s;
+}
+.module:hover { background: var(--bg-3); }
+.module-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.module-name.data { color: var(--teal); }
+.module-name.storage { color: var(--rose); }
+.module-owns {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.io {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 16px;
+  font-size: 13px;
+  padding-top: 8px;
+}
+.io-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-4);
+  letter-spacing: 0.12em;
+  padding-top: 3px;
+  text-transform: uppercase;
+}
+.io-content {
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.module-plain {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: 13px;
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+
+/* ===== FLOW WALKTHROUGHS ===== */
+.flow {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 40px;
+  margin-bottom: 32px;
+}
+.flow-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.flow-trigger {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.flow-step {
+  display: grid;
+  grid-template-columns: 60px 200px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.flow-step:last-child { border-bottom: none; }
+.step-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  padding-top: 3px;
+  letter-spacing: 0.1em;
+}
+.step-actor {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 500;
+  padding-top: 2px;
+}
+.step-actor .actor-tag {
+  display: inline-block;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+.actor-tag.front { background: rgba(212, 169, 85, 0.15); color: var(--accent-2); }
+.actor-tag.back { background: rgba(126, 184, 168, 0.15); color: var(--teal); }
+.actor-tag.user { background: rgba(196, 122, 106, 0.15); color: var(--rose); }
+.step-action {
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+/* ===== PLAIN ENGLISH SUMMARY ===== */
+.summary {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 64px;
+  margin-top: 24px;
+  position: relative;
+}
+.summary::before {
+  content: '"';
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  font-family: var(--serif);
+  font-size: 80px;
+  color: var(--accent-dim);
+  line-height: 1;
+}
+.summary p {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+.summary p:last-child { margin-bottom: 0; }
+.summary p em { color: var(--accent); font-style: italic; }
+
+/* ===== FOOTER ===== */
+footer {
+  max-width: 1280px;
+  margin: 80px auto 0;
+  padding: 48px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-4);
+  letter-spacing: 0.04em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero { padding: 80px 24px 60px; }
+  .hero .meta-row { flex-direction: column; gap: 24px; }
+  section { padding: 60px 24px; }
+  .section-head, .section-body { grid-template-columns: 1fr; gap: 24px; }
+  .layer { grid-template-columns: 1fr; gap: 16px; }
+  .modules { grid-template-columns: 1fr; }
+  .flow { padding: 24px; }
+  .flow-step { grid-template-columns: 32px 1fr; gap: 12px; }
+  .step-actor { grid-column: 2; padding-top: 0; }
+  .step-action { grid-column: 2; }
+  .summary { padding: 32px 24px; }
+  .summary p { font-size: 17px; }
+  footer { flex-direction: column; gap: 16px; padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">CEDA · Architecture v1.0</span>
+    <nav>
+      <a href="#sitemap">Site map</a>
+      <a href="#layers">Layers</a>
+      <a href="#modules">Modules</a>
+      <a href="#flows">Flows</a>
+      <a href="#summary">In plain English</a>
+    </nav>
+    <span class="meta">04 / 2026</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Site architecture · cedaghana.com</div>
+  <h1>How the new <em>CEDA</em> site works, end to end.</h1>
+  <p class="lede">A working architectural reference for the rebuild. Every page, every component, every database table, every external service. What each part is responsible for, what flows in, what flows out, and how the pieces fit together when a real visitor lands on the site.</p>
+  <div class="meta-row">
+    <div>
+      <strong>Stack</strong>
+      React · Vite · Tailwind · Framer Motion · Supabase · Vercel
+    </div>
+    <div>
+      <strong>Pages</strong>
+      9 routes plus dynamic publication and news pages
+    </div>
+    <div>
+      <strong>Modules</strong>
+      26 frontend, 4 backend tables, 3 storage buckets
+    </div>
+  </div>
+</header>
+
+<!-- ============== 01 SITE MAP ============== -->
+<section id="sitemap">
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <div>
+      <h2>Site map</h2>
+      <p>Every URL the site exposes, including dynamic pages generated from database content. Each route maps to one page component in the frontend.</p>
+    </div>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="tree">
+<span class="route">/</span><span class="route-meta">Landing page · LandingPage.jsx</span><br>
+<span class="branch">├─</span> <span class="route">/about</span><span class="route-meta">AboutPage.jsx</span><br>
+<span class="branch">│  └─</span> <span class="route">/about/team</span><span class="route-meta">TeamPage.jsx</span><br>
+<span class="branch">├─</span> <span class="route">/thematic-areas</span><span class="route-meta">ThematicAreasPage.jsx</span><br>
+<span class="branch">│  ├─</span> <span class="route">/thematic-areas/youth-development</span><span class="route-meta">ThematicAreaDetail.jsx (slug = youth-development)</span><br>
+<span class="branch">│  ├─</span> <span class="route">/thematic-areas/corporate-accountability</span><span class="route-meta">ThematicAreaDetail.jsx (slug = corporate-accountability)</span><br>
+<span class="branch">│  ├─</span> <span class="route">/thematic-areas/climate-energy-transition</span><span class="route-meta">ThematicAreaDetail.jsx (slug = climate-energy-transition)</span><br>
+<span class="branch">│  │  └─</span> <span class="route">/thematic-areas/climate-energy-transition/strategy</span><span class="route-meta">StrategyPage.jsx</span><br>
+<span class="branch">│  └─</span> <span class="route">/thematic-areas/gender-equity-inclusion</span><span class="route-meta">ThematicAreaDetail.jsx (slug = gender-equity-inclusion)</span><br>
+<span class="branch">├─</span> <span class="route">/resource-centre</span><span class="route-meta">ResourceCentrePage.jsx</span><br>
+<span class="branch">│  ├─</span> <span class="route">/resource-centre/publications</span><span class="route-meta">PublicationsPage.jsx (filterable directory)</span><br>
+<span class="branch">│  │  └─</span> <span class="route">/resource-centre/publications/:id</span><span class="route-meta">PublicationDetailPage.jsx</span><br>
+<span class="branch">│  ├─</span> <span class="route">/resource-centre/press-statements</span><span class="route-meta">PressStatementsPage.jsx</span><br>
+<span class="branch">│  └─</span> <span class="route">/resource-centre/annual-reports</span><span class="route-meta">AnnualReportsPage.jsx</span><br>
+<span class="branch">├─</span> <span class="route">/news</span><span class="route-meta">NewsPage.jsx</span><br>
+<span class="branch">│  └─</span> <span class="route">/news/:slug</span><span class="route-meta">NewsDetailPage.jsx</span><br>
+<span class="branch">└─</span> <span class="route">/contact</span><span class="route-meta">ContactPage.jsx</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 02 LAYERS ============== -->
+<section id="layers">
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <div>
+      <h2>The five layers</h2>
+      <p>The site is built in five horizontal layers. A request from a visitor's browser flows down through them and the response flows back up. Each layer has one clear job and depends only on the layer beneath it.</p>
+    </div>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div>
+      <div class="layers">
+        <div class="layer l-shell">
+          <div>
+            <div class="layer-num">LAYER 1</div>
+            <div class="layer-title">App Shell</div>
+            <div class="layer-tech">React Router · ThemeProvider · Layout</div>
+          </div>
+          <div class="layer-desc">The outermost wrapper. Decides which page to show based on the URL, holds the persistent header and footer, and provides global context (theme, Supabase client, motion preferences) to everything below it.</div>
+        </div>
+        <div class="layer-arrow">↓</div>
+        <div class="layer l-pages">
+          <div>
+            <div class="layer-num">LAYER 2</div>
+            <div class="layer-title">Page Components</div>
+            <div class="layer-tech">9 routes · LandingPage · AboutPage · PublicationsPage · etc.</div>
+          </div>
+          <div class="layer-desc">One file per route. Each page assembles a sequence of section blocks and reusable components into the full view a visitor sees. Pages are composition only. They do not own data fetching or styling logic.</div>
+        </div>
+        <div class="layer-arrow">↓</div>
+        <div class="layer l-components">
+          <div>
+            <div class="layer-num">LAYER 3</div>
+            <div class="layer-title">Reusable Components</div>
+            <div class="layer-tech">TextAppear · Hero · ThematicCard · AssessmentWidget · ContactForm · 12 more</div>
+          </div>
+          <div class="layer-desc">The pieces pages are built from. Each component takes props in and renders markup out. They handle their own animation (text-appear), local state (form fields, filter dropdowns), and visual polish.</div>
+        </div>
+        <div class="layer-arrow">↓</div>
+        <div class="layer l-data">
+          <div>
+            <div class="layer-num">LAYER 4</div>
+            <div class="layer-title">Hooks and Data Layer</div>
+            <div class="layer-tech">usePublications · useAssessment · useContactSubmit · supabaseClient</div>
+          </div>
+          <div class="layer-desc">All conversation with Supabase happens here. Hooks fetch publications, submit contact forms, increment assessment counters. Components never call Supabase directly, they call a hook.</div>
+        </div>
+        <div class="layer-arrow">↓</div>
+        <div class="layer l-storage">
+          <div>
+            <div class="layer-num">LAYER 5</div>
+            <div class="layer-title">Backend (Supabase)</div>
+            <div class="layer-tech">4 tables · 3 storage buckets · Row Level Security</div>
+          </div>
+          <div class="layer-desc">The persistent layer. Holds publication metadata, news posts, contact submissions, and assessment counters in Postgres. PDFs and images sit in storage buckets. Public users have read-only access to content tables and write-only access to submission tables.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 03 MODULES ============== -->
+<section id="modules">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <div>
+      <h2>Module reference</h2>
+      <p>Every module the codebase contains, grouped by layer. For each: what it owns, what flows in, what flows out, and a one-sentence plain-English description.</p>
+    </div>
+  </div>
+
+  <!-- ===== APP SHELL ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title"><span class="dot"></span>App shell modules</h3>
+    <p class="module-group-blurb">Sits at the top of the tree. Loads once when a visitor first lands on the site and stays mounted as they navigate between pages.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name">App.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Mounting React Router, wrapping all pages with the layout shell, providing global context.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">URL from browser, environment variables (Supabase URL and anon key)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">A fully-rendered page with header and footer wrapping it</div></div>
+        <div class="module-plain">The bouncer at the door. It looks at where you are trying to go and hands you off to the right room.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">Layout.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The persistent shell around every page (Header, MainContent slot, Footer, MobileMenu).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">children (the page being rendered), current route</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Header + page + Footer composed together</div></div>
+        <div class="module-plain">The picture frame. The frame stays the same. The picture inside changes as you move around the site.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">Header.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Top navigation, logo, mobile menu toggle, scroll-state styling (transparent at top, blurred after scroll).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">scroll position (via window listener), active route</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Sticky navigation bar with links, logo, and CTA</div></div>
+        <div class="module-plain">The same navigation strip every visitor sees, regardless of which page they are on.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">Footer.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Address, contact details, quick links, social icons, copyright.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none (all content is hardcoded from content file)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Footer markup</div></div>
+        <div class="module-plain">The signature at the bottom of every page.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGES ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title"><span class="dot"></span>Page components</h3>
+    <p class="module-group-blurb">One file per route. Each page is pure composition: it imports section components and passes them props. No data fetching logic lives at the page level, that is done in hooks.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name">LandingPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The home page sequence: Hero, What we do, Who we serve, Thematic areas, Assessment widget, Featured work, Why us, Partners, News, Get in touch.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none (uses hooks: useFeaturedPublications, useLatestNews)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Full landing page composed of ten section blocks</div></div>
+        <div class="module-plain">The front door. Arranges the ten landing-page sections in the right order and feeds them their data.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">AboutPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Mission, vision, goal, objectives, operational areas, and core values.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none (content is static from content file)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">About page markup</div></div>
+        <div class="module-plain">The story page. Static text, no database calls.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">TeamPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Governing board and team grids.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">team data array (from content file or team_members table)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Two grids: board members and team</div></div>
+        <div class="module-plain">The "who's behind this" page.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ThematicAreasPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Overview of the four thematic areas as a 2x2 grid.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none (thematic areas are hardcoded from content file)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">2x2 grid of ThematicCard components</div></div>
+        <div class="module-plain">The menu of CEDA's four big focus areas.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ThematicAreaDetail.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Deep-dive page for any one thematic area, looked up by URL slug.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">URL param: slug (e.g. corporate-accountability)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Full content page with hero, body, related publications, and links to other thematic areas</div></div>
+        <div class="module-plain">One file that handles all four thematic-area detail pages by reading the slug from the URL.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">PublicationsPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The filterable, searchable publications directory.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">URL query params (search, theme, type, year)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">FilterBar + grid of PublicationCard components, paginated</div></div>
+        <div class="module-plain">The library catalogue. Search bar at the top, results below.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">PublicationDetailPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Single publication page: abstract, key insights, download, related reports.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">URL param: id</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Full publication metadata view with download CTA</div></div>
+        <div class="module-plain">The page you land on when you click any publication card.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">NewsPage.jsx + NewsDetailPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> News index and individual post pages.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">URL param: slug (for detail page); none for index</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">List of news cards or full post body</div></div>
+        <div class="module-plain">The blog. List view and post view, same as any blog you have used.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ContactPage.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Contact form, contact details, embedded map.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">ContactForm + contact details + Google Map embed</div></div>
+        <div class="module-plain">Where someone reaches out to CEDA.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ResourceCentrePage.jsx + sub-pages</div>
+        <div class="module-owns"><strong>Owns:</strong> Resource centre overview and three sub-sections (Publications, Press Statements, Annual Reports).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none for overview; sub-pages each have their own data flow</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Overview hub with three sub-section cards</div></div>
+        <div class="module-plain">The hub for everything CEDA publishes, organised into three buckets.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REUSABLE COMPONENTS ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title"><span class="dot"></span>Reusable components</h3>
+    <p class="module-group-blurb">Building blocks. Used across many pages. Pure presentation: take props, render markup. Some hold local state (forms, dropdowns) but none reach into Supabase directly.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name">TextAppear.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The site's signature animation. Wraps any text and animates it word-by-word as it scrolls into view.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">children (text), as (tag, default p), stagger (number, default 0.05)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Text with each word wrapped in a motion.span, animated on viewport intersection</div></div>
+        <div class="module-plain">The Rise &amp; Roots-style text reveal. The one animation used everywhere on the site.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">SectionHeader.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The Rise &amp; Roots-style section anchor (large, sentence-case, bold).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">title (string), kicker (optional small label)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Styled section header wrapped in TextAppear</div></div>
+        <div class="module-plain">The "What we do" / "Who we serve" / "Featured work" header style, reused everywhere.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">Hero.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Full-bleed hero block (Aptos style: atmospheric image + headline + CTA).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">image, headline, subhead, primaryCTA, secondaryCTA</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Full-viewport hero section</div></div>
+        <div class="module-plain">The big atmospheric image and headline at the top of pages.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ThematicCard.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Card representation of a thematic area.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">title, blurb, image, slug</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Linked card</div></div>
+        <div class="module-plain">The four cards on the homepage and the thematic-areas page.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">PublicationCard.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Card representation of a publication.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">publication object (id, title, year, type, theme, thumbnail_url, abstract)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Linked card with thumbnail, title, type badge, year</div></div>
+        <div class="module-plain">The tile every publication is rendered as in lists and grids.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">FilterBar.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Search input plus dropdowns for theme, type, year.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">current filter values, available options</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">onChange callbacks fired when user changes any filter</div></div>
+        <div class="module-plain">The search-and-filter strip on top of the publications page.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">AssessmentWidget.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> The "Where do you stand?" three-question MCQ flow on the landing page, including the results screen.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">questions (array of 3, each with 4 options); aggregate counts (from useAssessment hook)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Question state, submitted answers (calls useAssessment.submit), results screen with percentages and evergreen narrative</div></div>
+        <div class="module-plain">The new engagement widget. Asks three questions, shows the visitor where they sit relative to everyone else, then a fixed paragraph about the sector.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">ContactForm.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Form fields, validation, submission state.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">none</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">On submit: calls useContactSubmit hook with form data; shows success or error state</div></div>
+        <div class="module-plain">The contact form on /contact and embedded as a CTA elsewhere.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">PartnerWall.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Logo grid with greyscale-to-colour hover state.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">array of partner objects (name, logo_url, link)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Responsive grid of partner logos</div></div>
+        <div class="module-plain">The partner logos on the landing page.</div>
+      </div>
+      <div class="module">
+        <div class="module-name">NewsCard.jsx · TeamMemberCard.jsx · NumberedItem.jsx</div>
+        <div class="module-owns"><strong>Owns:</strong> Smaller specialised cards: news preview, team member with photo and contact, and the numbered list items used in "Who we serve" and "Why us".</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">item-specific props (post / member / numbered item)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Styled card or list item</div></div>
+        <div class="module-plain">The smaller building blocks that show up across pages.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HOOKS ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title data"><span class="dot"></span>Hooks and data layer</h3>
+    <p class="module-group-blurb">The only place in the frontend that talks to Supabase. Everything above this layer asks a hook for what it needs and the hook handles the call.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name data">supabaseClient.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Single instance of the Supabase client, configured with project URL and anon key.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">A configured supabase client instance imported by every hook</div></div>
+        <div class="module-plain">The phone line to the database. Configured once, used everywhere.</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">usePublications.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Fetching publications from Supabase, with optional filters and search.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">filters object (theme, type, year, search)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ publications, loading, error }</div></div>
+        <div class="module-plain">"Give me publications, optionally narrowed down by these filters."</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">useFeaturedPublications.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Fetching the four publications flagged as featured for the landing page.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">limit (default 4)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ featured, loading, error }</div></div>
+        <div class="module-plain">"Give me the featured publications for the homepage."</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">usePublicationById.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Fetching a single publication and its related publications.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">id (string)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ publication, related, loading, error }</div></div>
+        <div class="module-plain">"Give me everything about publication X plus its related reports."</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">useNews.js · useNewsBySlug.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Fetching news posts (list or by slug).</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">limit or slug</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ posts, loading, error } or { post, loading, error }</div></div>
+        <div class="module-plain">"Give me the news posts" or "give me this specific post."</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">useAssessment.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Submitting visitor answers to the three MCQs and fetching aggregate counters.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">submit(answers): {q1, q2, q3} option keys</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ submit fn, results: { perOption: {...}, totalResponses } }</div></div>
+        <div class="module-plain">Sends the visitor's three picks to Supabase, gets back the percentages to display on the results screen.</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">useContactSubmit.js</div>
+        <div class="module-owns"><strong>Owns:</strong> Posting contact form submissions.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">{ name, email, phone, organisation, message }</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">{ submit fn, status: idle | sending | success | error }</div></div>
+        <div class="module-plain">Saves the contact form to Supabase. Returns a status flag so the form can show a confirmation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BACKEND TABLES ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title data"><span class="dot"></span>Database tables</h3>
+    <p class="module-group-blurb">Postgres tables in Supabase. Each table has Row Level Security policies that decide who can read and write.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name data">publications</div>
+        <div class="module-owns"><strong>Owns:</strong> Metadata for every publication CEDA has produced.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Inserts: admin only (via Supabase dashboard or import script)</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Reads: public, no auth required</div></div>
+        <div class="module-plain">The list of every report and brief, plus links to the actual PDFs in storage.</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">news_posts</div>
+        <div class="module-owns"><strong>Owns:</strong> News and blog post content.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Inserts: admin only</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Reads: public, no auth required</div></div>
+        <div class="module-plain">The blog posts and news items.</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">contact_submissions</div>
+        <div class="module-owns"><strong>Owns:</strong> Every contact form submission from the public.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Inserts: public allowed</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Reads: admin only</div></div>
+        <div class="module-plain">Inbox for form submissions. The public can write, only the team can read.</div>
+      </div>
+      <div class="module">
+        <div class="module-name data">assessment_responses</div>
+        <div class="module-owns"><strong>Owns:</strong> Aggregate counters for the landing-page MCQ widget. Twelve rows total: 3 questions x 4 options, plus a total-responses row.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Increment counters: public allowed via stored procedure</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Reads: public, no auth required</div></div>
+        <div class="module-plain">The simplest possible setup: counts of how many visitors picked each option, kept fresh by a stored procedure that increments on each submission.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STORAGE ===== -->
+  <div class="module-group">
+    <h3 class="module-group-title storage"><span class="dot"></span>Storage buckets</h3>
+    <p class="module-group-blurb">Files (PDFs, images) live in Supabase Storage, separate from the database. The database holds links to them.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="module-name storage">publications/</div>
+        <div class="module-owns"><strong>Owns:</strong> All publication PDFs.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Uploads: admin only</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Public URLs, embedded in publications.file_url</div></div>
+        <div class="module-plain">The PDF library.</div>
+      </div>
+      <div class="module">
+        <div class="module-name storage">thumbnails/</div>
+        <div class="module-owns"><strong>Owns:</strong> Cover images for every publication.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Uploads: admin only</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Public URLs, embedded in publications.thumbnail_url</div></div>
+        <div class="module-plain">The cover images shown on publication cards.</div>
+      </div>
+      <div class="module">
+        <div class="module-name storage">media/</div>
+        <div class="module-owns"><strong>Owns:</strong> Hero images, news cover images, partner logos, team photos.</div>
+        <div class="io"><div class="io-label">In</div><div class="io-content">Uploads: admin only</div></div>
+        <div class="io"><div class="io-label">Out</div><div class="io-content">Public URLs, used across the site</div></div>
+        <div class="module-plain">Everything visual that is not a publication PDF or thumbnail.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 04 FLOWS ============== -->
+<section id="flows">
+  <div class="section-head">
+    <div class="section-num">04</div>
+    <div>
+      <h2>Data flow walkthroughs</h2>
+      <p>Four end-to-end traces of what happens when a visitor takes an action. Showing the actor, the layer, and the action at every step. This is how the layers and modules above behave together.</p>
+    </div>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div>
+
+      <div class="flow">
+        <div class="flow-trigger">FLOW A · Visitor lands on the homepage</div>
+        <div class="flow-title">From URL request to a fully-rendered landing page</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-num">01</div>
+            <div class="step-actor">Visitor<span class="actor-tag user">USER</span></div>
+            <div class="step-action">Types cedaghana.com into the browser and hits enter.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">02</div>
+            <div class="step-actor">Vercel<span class="actor-tag back">HOST</span></div>
+            <div class="step-action">Serves the static React bundle. Browser starts running the JavaScript.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">03</div>
+            <div class="step-actor">App.jsx<span class="actor-tag front">SHELL</span></div>
+            <div class="step-action">React Router reads the URL (/), decides which page component to render. Picks LandingPage.jsx.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">04</div>
+            <div class="step-actor">LandingPage.jsx<span class="actor-tag front">PAGE</span></div>
+            <div class="step-action">Mounts. Calls useFeaturedPublications() and useLatestNews() hooks. Hooks return loading state initially.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">05</div>
+            <div class="step-actor">useFeaturedPublications<span class="actor-tag front">HOOK</span></div>
+            <div class="step-action">Sends a query to Supabase: select * from publications where featured = true limit 4.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">06</div>
+            <div class="step-actor">Supabase<span class="actor-tag back">DB</span></div>
+            <div class="step-action">Row Level Security checks pass (read is public). Returns the four featured publication rows.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">07</div>
+            <div class="step-actor">LandingPage.jsx<span class="actor-tag front">PAGE</span></div>
+            <div class="step-action">Hook resolves with data. Page re-renders with the four featured publications passed into PublicationCard components.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">08</div>
+            <div class="step-actor">TextAppear components<span class="actor-tag front">UI</span></div>
+            <div class="step-action">As the visitor scrolls, each TextAppear wrapper detects when its content enters the viewport, then animates each word in word-by-word.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-trigger">FLOW B · Visitor takes the "Where do you stand?" assessment</div>
+        <div class="flow-title">Three answers in, percentages and narrative out</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-num">01</div>
+            <div class="step-actor">Visitor<span class="actor-tag user">USER</span></div>
+            <div class="step-action">Picks an option for question 1, then question 2, then question 3. Hits submit.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">02</div>
+            <div class="step-actor">AssessmentWidget.jsx<span class="actor-tag front">UI</span></div>
+            <div class="step-action">Holds answers in local state. On submit, calls useAssessment.submit({q1, q2, q3}).</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">03</div>
+            <div class="step-actor">useAssessment.js<span class="actor-tag front">HOOK</span></div>
+            <div class="step-action">Calls a stored procedure on Supabase: increment_assessment_counters(q1, q2, q3). One round-trip, four counter increments.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">04</div>
+            <div class="step-actor">Supabase RPC<span class="actor-tag back">DB</span></div>
+            <div class="step-action">Stored procedure increments the relevant counter rows in assessment_responses. Returns the updated counts.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">05</div>
+            <div class="step-actor">useAssessment.js<span class="actor-tag front">HOOK</span></div>
+            <div class="step-action">Calculates percentages from the returned counts. Returns them to the widget.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">06</div>
+            <div class="step-actor">AssessmentWidget.jsx<span class="actor-tag front">UI</span></div>
+            <div class="step-action">Switches from question view to results view. Shows "X% of visitors picked the same as you" for each question, plus the hardcoded narrative paragraph.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-trigger">FLOW C · Visitor searches and downloads a publication</div>
+        <div class="flow-title">From a search query to an open PDF</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-num">01</div>
+            <div class="step-actor">Visitor<span class="actor-tag user">USER</span></div>
+            <div class="step-action">Types "ABFA" into the search bar on the publications page.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">02</div>
+            <div class="step-actor">FilterBar.jsx<span class="actor-tag front">UI</span></div>
+            <div class="step-action">Updates the URL query params and the filter state. PublicationsPage re-renders with the new filters.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">03</div>
+            <div class="step-actor">usePublications.js<span class="actor-tag front">HOOK</span></div>
+            <div class="step-action">Detects the new search filter. Sends a fresh query to Supabase: select where title or abstract or tags ilike '%abfa%'.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">04</div>
+            <div class="step-actor">Supabase<span class="actor-tag back">DB</span></div>
+            <div class="step-action">Returns matching publication rows. Each row contains a file_url pointing to a PDF in storage.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">05</div>
+            <div class="step-actor">PublicationsPage.jsx<span class="actor-tag front">PAGE</span></div>
+            <div class="step-action">Renders matching PublicationCard components in the grid.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">06</div>
+            <div class="step-actor">Visitor<span class="actor-tag user">USER</span></div>
+            <div class="step-action">Clicks a card. PublicationDetailPage loads. Clicks Download.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">07</div>
+            <div class="step-actor">Supabase Storage<span class="actor-tag back">FILES</span></div>
+            <div class="step-action">Serves the PDF directly from the publications/ bucket. PDF opens or downloads in the browser.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-trigger">FLOW D · Visitor sends a contact form message</div>
+        <div class="flow-title">From form submit to message in the team's inbox</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-num">01</div>
+            <div class="step-actor">Visitor<span class="actor-tag user">USER</span></div>
+            <div class="step-action">Fills in name, email, message. Hits send.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">02</div>
+            <div class="step-actor">ContactForm.jsx<span class="actor-tag front">UI</span></div>
+            <div class="step-action">Validates fields. Calls useContactSubmit.submit(payload). Shows "sending" state.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">03</div>
+            <div class="step-actor">useContactSubmit.js<span class="actor-tag front">HOOK</span></div>
+            <div class="step-action">Sends an insert to Supabase: insert into contact_submissions (name, email, ...).</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">04</div>
+            <div class="step-actor">Supabase<span class="actor-tag back">DB</span></div>
+            <div class="step-action">RLS allows public insert on this table. Row is written. Returns success.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">05</div>
+            <div class="step-actor">Database trigger<span class="actor-tag back">AUTO</span></div>
+            <div class="step-action">(Optional, recommended) On insert, sends an email notification to admin@cedaghana.com so the team is alerted in real time.</div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">06</div>
+            <div class="step-actor">ContactForm.jsx<span class="actor-tag front">UI</span></div>
+            <div class="step-action">Hook resolves with success. Form switches to "thanks, we'll be in touch" state.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== 05 PLAIN ENGLISH ============== -->
+<section id="summary">
+  <div class="section-head">
+    <div class="section-num">05</div>
+    <div>
+      <h2>The whole thing, in plain English</h2>
+      <p>If you skipped everything above, this is the architecture in five paragraphs.</p>
+    </div>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="summary">
+      <p>The CEDA site is a static React app, deployed to Vercel, that loads quickly and then talks to a Supabase backend whenever it needs real content (publications, news, the assessment counters, contact form). When you visit cedaghana.com, Vercel sends you the bundle. The bundle then asks Supabase for whatever the page you're looking at needs.</p>
+      <p>The frontend is built in <em>five horizontal layers</em>. The shell is the persistent frame. Pages are one file each, one per URL. Reusable components are the building blocks pages compose. Hooks handle every conversation with Supabase. Supabase is the database and storage at the bottom.</p>
+      <p>The backend is intentionally tiny: <em>four tables and three storage buckets</em>. Publications and news posts are read-public, write-admin. Contact submissions are write-public, read-admin. The assessment widget uses a counter table with twelve rows: three questions times four options, plus a total. Each visitor submission increments four counter rows through one stored procedure call.</p>
+      <p>The signature visual move is the <em>text-appear animation</em>, a TextAppear wrapper component used everywhere, that splits text into words and animates each one as it scrolls into view. There is no other copy-level animation. Layout-level motion is limited to a sticky header that gains a blur on scroll, plus subtle hover states on cards.</p>
+      <p>Everything published goes through the same path: an admin uploads a PDF and thumbnail to Supabase storage, then adds a row to the publications table pointing at those files. The frontend picks up the change automatically. <em>No code changes, no redeploy</em>. The team can publish a new report and have it live on the site within minutes.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>CEDA · Site Architecture Reference</div>
+  <div>Companion to ceda-site-content.md and ceda-website-design-plan.md</div>
+</footer>
+
+</body>
+</html>

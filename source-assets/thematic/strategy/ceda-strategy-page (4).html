@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Transition & Critical Minerals Strategy | CEDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ====== SECTION 1: STRATEGY FRAMEWORK ====== */
+        .strategy-section {
+            background: linear-gradient(155deg, #0A2E18 0%, #144D2D 50%, #1B6B3D 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 90%, rgba(125, 211, 168, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 10%, rgba(212, 168, 75, 0.06) 0%, transparent 35%);
+        }
+
+        .strategy-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 2.5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-box {
+            width: 46px;
+            height: 46px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+
+        .banner-title {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            opacity: 0.8;
+        }
+
+        /* Title row */
+        .title-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .main-title {
+            color: white;
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .main-title span {
+            color: #7DD3A8;
+        }
+
+        .title-context {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            max-width: 420px;
+            text-align: right;
+            line-height: 1.5;
+        }
+
+        /* Three pillars */
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1000px) {
+            .pillars-container {
+                grid-template-columns: 1fr;
+            }
+            .title-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .title-context {
+                text-align: left;
+            }
+        }
+
+        .pillar {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pillar-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pillar-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .pillar.national .pillar-icon {
+            background: linear-gradient(135deg, #7DD3A8, #5BC48E);
+            box-shadow: 0 4px 20px rgba(125, 211, 168, 0.3);
+        }
+
+        .pillar.national .pillar-icon svg { stroke: #0A2E18; }
+
+        .pillar.subnational .pillar-icon {
+            background: linear-gradient(135deg, #E8915A, #D47F4A);
+            box-shadow: 0 4px 20px rgba(232, 145, 90, 0.3);
+        }
+
+        .pillar.subnational .pillar-icon svg { stroke: #3D1F0F; }
+
+        .pillar.crosscutting .pillar-icon {
+            background: linear-gradient(135deg, #D4A84B, #C49A3D);
+            box-shadow: 0 4px 20px rgba(212, 168, 75, 0.3);
+        }
+
+        .pillar.crosscutting .pillar-icon svg { stroke: #3D2E0F; }
+
+        .pillar-title-block h2 {
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+        }
+
+        .pillar-title-block p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .activities-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .activity-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            transition: all 0.25s ease;
+        }
+
+        .activity-item:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .activity-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .pillar.national .activity-dot { background: #7DD3A8; }
+        .pillar.subnational .activity-dot { background: #E8915A; }
+        .pillar.crosscutting .activity-dot { background: #D4A84B; }
+
+        .activity-title {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .activity-desc {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.78rem;
+            line-height: 1.45;
+            padding-left: 1.1rem;
+        }
+
+        /* Footer bar */
+        .footer-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .partners-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .partners-label {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .partners-list {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-link {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            padding: 0.4rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .partner-link:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .footer-url {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ====== SECTION 2: GRAPH VIEW ====== */
+        .graph-section {
+            background: linear-gradient(180deg, #0A2E18 0%, #0D3620 50%, #0F3D24 100%);
+            position: relative;
+        }
+
+        .graph-header {
+            background: rgba(10, 46, 24, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .graph-title {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .graph-subtitle {
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .graph-container {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+        }
+
+        #graph-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            background: rgba(10, 46, 24, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            z-index: 90;
+            min-width: 200px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .legend-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-dot.national { background: #7DD3A8; box-shadow: 0 0 10px rgba(125, 211, 168, 0.5); }
+        .legend-dot.subnational { background: #E8915A; box-shadow: 0 0 10px rgba(232, 145, 90, 0.5); }
+        .legend-dot.crosscutting { background: #D4A84B; box-shadow: 0 0 10px rgba(212, 168, 75, 0.5); }
+        .legend-dot.deliverable { background: #8B9DC3; box-shadow: 0 0 10px rgba(139, 157, 195, 0.5); }
+
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(10, 46, 24, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            max-width: 320px;
+            z-index: 200;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: opacity 0.2s, transform 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tooltip-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .tooltip-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .tooltip-type.national { background: rgba(125, 211, 168, 0.2); color: #7DD3A8; }
+        .tooltip-type.subnational { background: rgba(232, 145, 90, 0.2); color: #E8915A; }
+        .tooltip-type.crosscutting { background: rgba(212, 168, 75, 0.2); color: #D4A84B; }
+        .tooltip-type.deliverable { background: rgba(139, 157, 195, 0.2); color: #8B9DC3; }
+
+        .tooltip-link {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.5rem;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 46, 24, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            z-index: 90;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .click-prompt {
+            position: absolute;
+            bottom: 4.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(42, 157, 92, 0.2);
+            border: 1px solid rgba(42, 157, 92, 0.3);
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.8rem;
+            color: #7DD3A8;
+            z-index: 90;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .click-prompt.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== SECTION 1: STRATEGY FRAMEWORK ====== -->
+    <section class="strategy-section">
+        <div class="strategy-content">
+            
+            <!-- Header -->
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-box">C</div>
+                    <span class="logo-text">CEDA</span>
+                </div>
+                <div class="banner-title">Energy Transition & Critical Minerals Strategy</div>
+            </div>
+
+            <!-- Title Row -->
+            <div class="title-row">
+                <h1 class="main-title">Strategic <span>Framework</span></h1>
+                <p class="title-context">Supporting Africa's just energy transition through integrated policy, research, and community-centred interventions</p>
+            </div>
+
+            <!-- Three Pillars -->
+            <div class="pillars-container">
+
+                <!-- National Level -->
+                <div class="pillar national">
+                    <div class="pillar-header">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/>
+                            </svg>
+                        </div>
+                        <div class="pillar-title-block">
+                            <h2>National Level</h2>
+                            <p>Government & Institutional Support</p>
+                        </div>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Policy & Strategy Development</span>
+                            </div>
+                            <p class="activity-desc">Technical support to government to develop critical minerals and energy transition policy frameworks</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Gap Analysis & Needs Assessment</span>
+                            </div>
+                            <p class="activity-desc">Identifying policy and institutional gaps across the critical minerals and clean energy value chain</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Institutional Strengthening</span>
+                            </div>
+                            <p class="activity-desc">Supporting government agencies and regulatory bodies on energy transition governance and climate policy</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Value Chain Actor Support</span>
+                            </div>
+                            <p class="activity-desc">Building capacity of national actors involved in critical minerals and sustainable energy governance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-National Level -->
+                <div class="pillar subnational">
+                    <div class="pillar-header">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="pillar-title-block">
+                            <h2>Sub-National Level</h2>
+                            <p>Civic & Community Engagement</p>
+                        </div>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Community Voice Integration</span>
+                            </div>
+                            <p class="activity-desc">Ensuring community perspectives are mainstreamed into energy transition and climate policy development</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">CSO & CBO Capacity Building</span>
+                            </div>
+                            <p class="activity-desc">Strengthening civil society and community-based organisations engaged in extractives and climate governance</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Sensitisation & Mobilisation</span>
+                            </div>
+                            <p class="activity-desc">Community awareness on rights, opportunities and impacts of critical minerals and energy transition</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Local Stakeholder Convening</span>
+                            </div>
+                            <p class="activity-desc">Creating platforms for dialogue on just transition between communities, government and industry</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning & Exchange -->
+                <div class="pillar crosscutting">
+                    <div class="pillar-header">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                            </svg>
+                        </div>
+                        <div class="pillar-title-block">
+                            <h2>Learning & Exchange</h2>
+                            <p>Cross-Cutting Implementation</p>
+                        </div>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Gender Mainstreaming</span>
+                            </div>
+                            <p class="activity-desc">Integrating gender equity across all interventions in the energy transition and climate action space</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">M&E and Learning</span>
+                            </div>
+                            <p class="activity-desc">Monitoring, evaluation and adaptive learning to strengthen programme effectiveness</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Peer Exchange & Replication</span>
+                            </div>
+                            <p class="activity-desc">Facilitating knowledge sharing and replicating successful models</p>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-header">
+                                <span class="activity-dot"></span>
+                                <span class="activity-title">Pilot Community Initiatives</span>
+                            </div>
+                            <p class="activity-desc">Implementing tailored approaches in target communities such as Ellembelle for scale-up learning</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer with Partners -->
+            <div class="footer-bar">
+                <div class="partners-section">
+                    <span class="partners-label">Implementation Partners:</span>
+                    <div class="partners-list">
+                        <a href="https://acep.africa/" target="_blank" class="partner-link">ACEP</a>
+                        <a href="https://resourcegovernance.org/" target="_blank" class="partner-link">NRGI</a>
+                        <a href="https://climatecompatiblegrowth.com/" target="_blank" class="partner-link">CCG</a>
+                        <a href="https://eiti.org/" target="_blank" class="partner-link">EITI</a>
+                        <a href="https://www.gheiti.gov.gh/site/" target="_blank" class="partner-link">GHEITI</a>
+                        <a href="https://www.syndghana.org/" target="_blank" class="partner-link">SYND</a>
+                        <a href="https://gaccgh.org/" target="_blank" class="partner-link">GACC</a>
+                    </div>
+                </div>
+                <span class="footer-url">cedaghana.com</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ====== SECTION 2: DELIVERABLES GRAPH ====== -->
+    <section class="graph-section">
+        
+        <div class="graph-header">
+            <div>
+                <h2 class="graph-title">Deliverables & Reports</h2>
+                <p class="graph-subtitle">How our work connects to the strategy</p>
+            </div>
+        </div>
+
+        <div class="graph-container">
+            <canvas id="graph-canvas"></canvas>
+
+            <div class="legend">
+                <div class="legend-title">Strategy Levels</div>
+                <div class="legend-item">
+                    <span class="legend-dot national"></span>
+                    <span>National Level</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot subnational"></span>
+                    <span>Sub-National Level</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot crosscutting"></span>
+                    <span>Learning & Exchange</span>
+                </div>
+                <div class="legend-item" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <span class="legend-dot deliverable"></span>
+                    <span>Deliverable / Report</span>
+                </div>
+            </div>
+
+            <div class="instructions">Hover over blue circles to see our work • Drag to pan • Scroll to zoom • Click to open</div>
+            <div class="click-prompt" id="click-prompt">Click node to open report →</div>
+        </div>
+
+        <div class="tooltip" id="tooltip">
+            <div class="tooltip-type" id="tooltip-type"></div>
+            <div class="tooltip-title" id="tooltip-title"></div>
+            <div class="tooltip-link" id="tooltip-link"></div>
+        </div>
+
+    </section>
+
+    <script>
+        // Data: Strategy nodes and deliverables
+        const strategyNodes = [
+            { id: 'national', label: 'National Level', type: 'national', x: 0, y: 0, radius: 45 },
+            { id: 'subnational', label: 'Sub-National Level', type: 'subnational', x: 0, y: 0, radius: 45 },
+            { id: 'crosscutting', label: 'Learning & Exchange', type: 'crosscutting', x: 0, y: 0, radius: 45 }
+        ];
+
+        const deliverables = [
+            {
+                id: 'd1',
+                label: 'Comprehensive Review & Gap Analysis of Ghana\'s Transition to E2&3Ws',
+                shortLabel: 'E2&3W Gap Analysis',
+                partner: 'CCG',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/d1-comprehensive-review-gap-analysis-of-ghanas-transition-to-e23ws/',
+                connections: ['national', 'crosscutting']
+            },
+            {
+                id: 'd2',
+                label: 'Inception Report – Exploring the Transition Pathways To E2&3Ws in Ghana',
+                shortLabel: 'E2&3W Inception Report',
+                partner: 'CCG',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/inception-report-exploring-the-transition-pathways-to-e23ws-in-ghana/',
+                connections: ['national']
+            },
+            {
+                id: 'd3',
+                label: 'Inception Report (Summary) – E2&3Ws Transition Pathways',
+                shortLabel: 'E2&3W Summary',
+                partner: 'CCG',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/inception-report-summary-exploring-the-transition-pathways-to-e23ws-in-ghana/',
+                connections: ['national']
+            },
+            {
+                id: 'd4',
+                label: 'Impact Assessment of ABFA Utilization by Development Authorities',
+                shortLabel: 'ABFA Impact Assessment',
+                partner: 'GIZ',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/impact-assessment-of-abfa-utilizationby-development-authorities/',
+                connections: ['national', 'subnational']
+            },
+            {
+                id: 'd5',
+                label: 'PIAC Public Perception',
+                shortLabel: 'PIAC Perception',
+                partner: 'PIAC',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/piac-public-perception/',
+                connections: ['subnational', 'crosscutting']
+            },
+            {
+                id: 'd6',
+                label: 'Effects of COVID-19 on Petroleum and Mining Sectors',
+                shortLabel: 'COVID-19 Extractives',
+                partner: 'NRGI',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/the-effects-of-covid-19-on-the-petroleum-and-mining-sectors-of-ghana/',
+                connections: ['national']
+            },
+            {
+                id: 'd7',
+                label: 'ASM Stakeholder Mapping & Ghana EITI Technical Report',
+                shortLabel: 'ASM Stakeholder Mapping',
+                partner: 'GHEITI',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/asm-stakeholder-mapping-and-preparation-of-2020-ghana-eiti-technical-report-on-the-asm-sector/',
+                connections: ['national', 'subnational']
+            },
+            {
+                id: 'd8',
+                label: 'Non-Fiscal Revenue Pathway to Optimizing Benefits in Mining',
+                shortLabel: 'Non-Fiscal Revenue',
+                partner: 'NRGI',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/non-fiscal-revenue-pathway-to-optimizing-benefits-in-ghanas-mining-sector/',
+                connections: ['national']
+            },
+            {
+                id: 'd9',
+                label: 'Implementation of Beneficial Ownership (BO) Disclosure',
+                shortLabel: 'Beneficial Ownership',
+                partner: 'EITI',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/implementation-of-beneficial-ownership-bo-disclosure/',
+                connections: ['national']
+            },
+            {
+                id: 'd10',
+                label: 'ABFA Utilization in Bridging Inequality Gap',
+                shortLabel: 'ABFA Inequality',
+                partner: 'GIZ',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/abfa-utilization-in-bridging-inequality-gap-in-ghana/',
+                connections: ['subnational', 'crosscutting']
+            },
+            {
+                id: 'd11',
+                label: 'Energy Transition – Cost, Opportunities and Policy Options for Ghana',
+                shortLabel: 'Energy Transition Policy',
+                partner: 'Gower St',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/energy-transition-cost-opportunities-and-policy-options-for-ghana/',
+                connections: ['national', 'crosscutting']
+            },
+            {
+                id: 'd12',
+                label: 'PIAC Communication Strategy',
+                shortLabel: 'PIAC Comms Strategy',
+                partner: 'PIAC',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/piac-communication-strategy/',
+                connections: ['subnational', 'crosscutting']
+            },
+            {
+                id: 'd13',
+                label: 'Enhancing Women\'s Participation in Extractive Sector Governance',
+                shortLabel: 'Women in Extractives',
+                partner: 'Ford',
+                type: 'deliverable',
+                mediaType: 'Report',
+                url: 'https://cedaghana.com/enhancing-womens-participation-in-extractive-sector-governance/',
+                connections: ['subnational', 'crosscutting']
+            },
+            {
+                id: 'd14',
+                label: 'Ellembelle Energy Transition High School Quiz',
+                shortLabel: 'Ellembelle HS Quiz',
+                partner: 'EITI',
+                type: 'deliverable',
+                mediaType: 'Video',
+                url: 'https://www.youtube.com/playlist?list=PLDzK9CjEwuq5tfxqSoirycRaQ1LedYf7a',
+                connections: ['subnational', 'crosscutting']
+            }
+        ];
+
+        // Colors
+        const colors = {
+            national: '#7DD3A8',
+            subnational: '#E8915A',
+            crosscutting: '#D4A84B',
+            deliverable: '#8B9DC3'
+        };
+
+        // Canvas setup
+        const canvas = document.getElementById('graph-canvas');
+        const ctx = canvas.getContext('2d');
+        const graphContainer = document.querySelector('.graph-container');
+        let width, height;
+        let offsetX = 0, offsetY = 0;
+        let scale = 1;
+        let isDragging = false;
+        let dragStartX, dragStartY;
+        let hoveredNode = null;
+        let animationFrame;
+
+        // Resize canvas
+        function resize() {
+            const rect = graphContainer.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width * window.devicePixelRatio;
+            canvas.height = height * window.devicePixelRatio;
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        }
+
+        // Position nodes
+        function positionNodes() {
+            const centerX = width / 2;
+            const centerY = height / 2;
+            
+            // Strategy nodes in triangle
+            const stratRadius = 160;
+            strategyNodes[0].x = centerX;
+            strategyNodes[0].y = centerY - stratRadius;
+            strategyNodes[1].x = centerX - stratRadius * 0.95;
+            strategyNodes[1].y = centerY + stratRadius * 0.6;
+            strategyNodes[2].x = centerX + stratRadius * 0.95;
+            strategyNodes[2].y = centerY + stratRadius * 0.6;
+
+            // Position deliverables around their connections
+            deliverables.forEach((d, i) => {
+                const connections = d.connections;
+                let avgX = 0, avgY = 0;
+                
+                connections.forEach(connId => {
+                    const stratNode = strategyNodes.find(s => s.id === connId);
+                    avgX += stratNode.x;
+                    avgY += stratNode.y;
+                });
+                
+                avgX /= connections.length;
+                avgY /= connections.length;
+
+                // Add some spread
+                const angle = (i / deliverables.length) * Math.PI * 2 + Math.random() * 0.5;
+                const dist = 200 + Math.random() * 80;
+                
+                d.x = avgX + Math.cos(angle) * dist;
+                d.y = avgY + Math.sin(angle) * dist;
+                d.radius = 20;
+                d.vx = 0;
+                d.vy = 0;
+            });
+        }
+
+        // Simple physics simulation
+        function simulate() {
+            const centerX = width / 2;
+            const centerY = height / 2;
+
+            deliverables.forEach((d, i) => {
+                // Attract to connected strategy nodes
+                d.connections.forEach(connId => {
+                    const stratNode = strategyNodes.find(s => s.id === connId);
+                    const dx = stratNode.x - d.x;
+                    const dy = stratNode.y - d.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const targetDist = 180;
+                    
+                    if (dist > 0) {
+                        const force = (dist - targetDist) * 0.001;
+                        d.vx += (dx / dist) * force;
+                        d.vy += (dy / dist) * force;
+                    }
+                });
+
+                // Repel from other deliverables
+                deliverables.forEach((other, j) => {
+                    if (i !== j) {
+                        const dx = d.x - other.x;
+                        const dy = d.y - other.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        const minDist = 60;
+                        
+                        if (dist < minDist && dist > 0) {
+                            const force = (minDist - dist) * 0.02;
+                            d.vx += (dx / dist) * force;
+                            d.vy += (dy / dist) * force;
+                        }
+                    }
+                });
+
+                // Repel from strategy nodes
+                strategyNodes.forEach(s => {
+                    const dx = d.x - s.x;
+                    const dy = d.y - s.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const minDist = 100;
+                    
+                    if (dist < minDist && dist > 0) {
+                        const force = (minDist - dist) * 0.03;
+                        d.vx += (dx / dist) * force;
+                        d.vy += (dy / dist) * force;
+                    }
+                });
+
+                // Gentle pull to center
+                d.vx += (centerX - d.x) * 0.0001;
+                d.vy += (centerY - d.y) * 0.0001;
+
+                // Apply velocity with damping
+                d.vx *= 0.9;
+                d.vy *= 0.9;
+                d.x += d.vx;
+                d.y += d.vy;
+            });
+        }
+
+        // Draw everything
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            
+            ctx.save();
+            ctx.translate(offsetX + width/2, offsetY + height/2);
+            ctx.scale(scale, scale);
+            ctx.translate(-width/2, -height/2);
+
+            // Draw connections (edges)
+            deliverables.forEach(d => {
+                d.connections.forEach(connId => {
+                    const stratNode = strategyNodes.find(s => s.id === connId);
+                    
+                    const gradient = ctx.createLinearGradient(d.x, d.y, stratNode.x, stratNode.y);
+                    gradient.addColorStop(0, colors.deliverable + '40');
+                    gradient.addColorStop(1, colors[stratNode.type] + '40');
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(d.x, d.y);
+                    ctx.lineTo(stratNode.x, stratNode.y);
+                    ctx.strokeStyle = hoveredNode === d ? colors[stratNode.type] + 'AA' : gradient;
+                    ctx.lineWidth = hoveredNode === d ? 2 : 1;
+                    ctx.stroke();
+                });
+            });
+
+            // Draw strategy nodes
+            strategyNodes.forEach(node => {
+                // Glow
+                const glowGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 2);
+                glowGradient.addColorStop(0, colors[node.type] + '30');
+                glowGradient.addColorStop(1, 'transparent');
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius * 2, 0, Math.PI * 2);
+                ctx.fillStyle = glowGradient;
+                ctx.fill();
+
+                // Node
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fillStyle = colors[node.type];
+                ctx.fill();
+
+                // Label
+                ctx.fillStyle = '#0a0a0f';
+                ctx.font = '600 10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                const words = node.label.split(' ');
+                if (words.length > 1) {
+                    ctx.fillText(words[0], node.x, node.y - 6);
+                    ctx.fillText(words.slice(1).join(' '), node.x, node.y + 8);
+                } else {
+                    ctx.fillText(node.label, node.x, node.y);
+                }
+            });
+
+            // Draw deliverable nodes
+            deliverables.forEach(d => {
+                const isHovered = hoveredNode === d;
+                const radius = isHovered ? d.radius * 1.2 : d.radius;
+
+                // Glow when hovered
+                if (isHovered) {
+                    const glowGradient = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, radius * 2.5);
+                    glowGradient.addColorStop(0, colors.deliverable + '50');
+                    glowGradient.addColorStop(1, 'transparent');
+                    ctx.beginPath();
+                    ctx.arc(d.x, d.y, radius * 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = glowGradient;
+                    ctx.fill();
+                }
+
+                // Node
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = isHovered ? colors.deliverable : colors.deliverable + 'CC';
+                ctx.fill();
+
+                // Border
+                ctx.strokeStyle = isHovered ? '#fff' : colors.deliverable;
+                ctx.lineWidth = isHovered ? 2 : 1;
+                ctx.stroke();
+
+                // Partner label inside node
+                if (d.partner) {
+                    ctx.fillStyle = '#0a0a0f';
+                    ctx.font = '600 8px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(d.partner, d.x, d.y);
+                }
+            });
+
+            ctx.restore();
+
+            // Continue simulation
+            simulate();
+            animationFrame = requestAnimationFrame(draw);
+        }
+
+        // Get node at position
+        function getNodeAtPosition(x, y) {
+            const rect = graphContainer.getBoundingClientRect();
+            const canvasX = x - rect.left;
+            const canvasY = y - rect.top;
+            
+            // Transform mouse coordinates
+            const tx = (canvasX - offsetX - width/2) / scale + width/2;
+            const ty = (canvasY - offsetY - height/2) / scale + height/2;
+
+            // Check deliverables first (they're on top)
+            for (const d of deliverables) {
+                const dist = Math.sqrt((tx - d.x) ** 2 + (ty - d.y) ** 2);
+                if (dist < d.radius + 5) return d;
+            }
+
+            // Check strategy nodes
+            for (const s of strategyNodes) {
+                const dist = Math.sqrt((tx - s.x) ** 2 + (ty - s.y) ** 2);
+                if (dist < s.radius + 5) return s;
+            }
+
+            return null;
+        }
+
+        // Tooltip handling
+        const tooltip = document.getElementById('tooltip');
+        const tooltipTitle = document.getElementById('tooltip-title');
+        const tooltipType = document.getElementById('tooltip-type');
+        const tooltipLink = document.getElementById('tooltip-link');
+        const clickPrompt = document.getElementById('click-prompt');
+
+        function showTooltip(node, x, y) {
+            tooltipTitle.textContent = node.label;
+            tooltipType.textContent = node.mediaType ? node.mediaType : 
+                                      node.type === 'national' ? 'National Level' :
+                                      node.type === 'subnational' ? 'Sub-National Level' : 'Learning & Exchange';
+            tooltipType.className = 'tooltip-type ' + node.type;
+            
+            if (node.url) {
+                tooltipLink.textContent = 'Click to view report';
+                tooltipLink.style.display = 'block';
+                clickPrompt.classList.add('visible');
+            } else {
+                tooltipLink.style.display = 'none';
+                clickPrompt.classList.remove('visible');
+            }
+
+            // Position tooltip
+            let left = x + 15;
+            let top = y + 15;
+            
+            if (left + 320 > window.innerWidth) left = x - 335;
+            if (top + 150 > window.innerHeight) top = y - 100;
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+            tooltip.classList.add('visible');
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+            clickPrompt.classList.remove('visible');
+        }
+
+        // Event listeners
+        canvas.addEventListener('mousemove', (e) => {
+            const node = getNodeAtPosition(e.clientX, e.clientY);
+            
+            if (node !== hoveredNode) {
+                hoveredNode = node;
+                canvas.style.cursor = node ? 'pointer' : 'grab';
+            }
+
+            if (node) {
+                showTooltip(node, e.clientX, e.clientY);
+            } else {
+                hideTooltip();
+            }
+
+            if (isDragging) {
+                offsetX += e.clientX - dragStartX;
+                offsetY += e.clientY - dragStartY;
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+            }
+        });
+
+        canvas.addEventListener('mousedown', (e) => {
+            if (!hoveredNode) {
+                isDragging = true;
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+                canvas.style.cursor = 'grabbing';
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+            canvas.style.cursor = hoveredNode ? 'pointer' : 'grab';
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false;
+            hoveredNode = null;
+            hideTooltip();
+        });
+
+        canvas.addEventListener('click', (e) => {
+            const node = getNodeAtPosition(e.clientX, e.clientY);
+            if (node && node.url) {
+                window.open(node.url, '_blank');
+            }
+        });
+
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            const newScale = Math.min(Math.max(scale * delta, 0.3), 2);
+            
+            const rect = graphContainer.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            offsetX = mouseX - (mouseX - offsetX) * (newScale / scale);
+            offsetY = mouseY - (mouseY - offsetY) * (newScale / scale);
+            
+            scale = newScale;
+        });
+
+        window.addEventListener('resize', () => {
+            resize();
+            positionNodes();
+        });
+
+        // Initialize
+        resize();
+        positionNodes();
+        draw();
+    </script>
+</body>
+</html>
