@@ -212,7 +212,22 @@ export const siteContent = {
       'Submissions write to the Supabase `contact_submissions` table. Confirmation message displays on success.',
     visitUs: 'Embedded map showing the Madina, Accra office location.',
     mapUrl: 'https://share.google/6D18AYJnGBvOn7zUr',
-    social: ['Facebook', 'X', 'LinkedIn'],
+    mapEmbedUrl:
+      'https://maps.google.com/maps?q=222%20Westland%20Boulevard%20Road%2C%20Madina%2C%20Accra%2C%20Ghana&z=16&output=embed',
+    social: [
+      {
+        label: 'Facebook',
+        url: 'https://www.facebook.com/profile.php?id=61563892340523',
+      },
+      {
+        label: 'X',
+        url: 'https://x.com/ceda_ghana?s=21',
+      },
+      {
+        label: 'LinkedIn',
+        url: 'http://linkedin.com/company/centre-for-extractives-development-africa-ceda/posts/?feedView=all%20',
+      },
+    ],
   },
   footer: {
     organisation: 'CEDA, Centre for Extractives and Development Africa',
@@ -220,6 +235,19 @@ export const siteContent = {
     phone: ['+233 54 011 5573', '+233 55 494 9652'],
     email: 'admin@cedaghana.com',
     quickLinks: ['Home', 'About', 'Thematic Areas', 'Resource Centre', 'News', 'Contact'],
-    social: ['Facebook', 'X', 'LinkedIn'],
+    social: [
+      {
+        label: 'Facebook',
+        url: 'https://www.facebook.com/profile.php?id=61563892340523',
+      },
+      {
+        label: 'X',
+        url: 'https://x.com/ceda_ghana?s=21',
+      },
+      {
+        label: 'LinkedIn',
+        url: 'http://linkedin.com/company/centre-for-extractives-development-africa-ceda/posts/?feedView=all%20',
+      },
+    ],
   },
 }

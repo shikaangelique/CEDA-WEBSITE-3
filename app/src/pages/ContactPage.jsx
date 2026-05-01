@@ -53,12 +53,15 @@ export default function ContactPage() {
                 <p className="eyebrow">Social</p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   {contact.social.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-[var(--radius-sm)] border border-[var(--color-line)] px-3 py-2 text-sm text-[var(--color-text-muted)]"
+                    <a
+                      key={item.label}
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-[var(--radius-sm)] border border-[var(--color-line)] px-3 py-2 text-sm text-[var(--color-text-muted)] transition hover:border-[var(--color-line-strong)] hover:text-[var(--color-text)]"
                     >
-                      {item}
-                    </span>
+                      {item.label}
+                    </a>
                   ))}
                 </div>
               </Card>
@@ -78,20 +81,25 @@ export default function ContactPage() {
         <Container className="py-[var(--section-y)]">
           <SectionHeader title="Visit us" intro={contact.visitUs} />
           <div className="mt-10 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-line)] bg-[var(--color-bg-card)]">
-            <a
-              href={contact.mapUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex min-h-[24rem] items-center justify-center bg-[radial-gradient(circle_at_50%_40%,rgba(107,181,120,0.14),transparent_34%),linear-gradient(135deg,rgba(17,21,15,0.92),rgba(32,38,29,0.78)),var(--color-bg-soft)] p-8 text-center transition hover:bg-[radial-gradient(circle_at_50%_40%,rgba(107,181,120,0.2),transparent_34%),linear-gradient(135deg,rgba(17,21,15,0.92),rgba(32,38,29,0.86)),var(--color-bg-soft)]"
-            >
-              <div>
-                <p className="eyebrow">Open map</p>
-                <p className="body-lg mt-4 max-w-xl">{contact.address}</p>
-                <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent)] transition group-hover:text-[var(--color-accent-bright)]">
-                  View on Google Maps
-                </p>
-              </div>
-            </a>
+            <iframe
+              title="CEDA office location"
+              src={contact.mapEmbedUrl}
+              className="h-[28rem] w-full border-0 grayscale-[0.25] invert-[0.88] hue-rotate-90 saturate-[0.65]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-line)] bg-[rgba(10,12,10,0.84)] p-5">
+              <p className="body-md">{contact.address}</p>
+              <a
+                href={contact.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent)] transition hover:text-[var(--color-accent-bright)]"
+              >
+                Open in Google Maps
+              </a>
+            </div>
           </div>
         </Container>
       </section>

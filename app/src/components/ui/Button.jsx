@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Link } from 'react-router-dom'
 
 const variants = {
   primary:
@@ -23,6 +24,10 @@ export default function Button({
   )
 
   if (href) {
+    if (href.startsWith('/')) {
+      return <Link className={classes} to={href} {...props} />
+    }
+
     return <a className={classes} href={href} {...props} />
   }
 

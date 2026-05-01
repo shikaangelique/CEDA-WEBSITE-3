@@ -53,13 +53,16 @@ export default function Footer() {
         <div>
           <h2 className="eyebrow mb-5">Social</h2>
           <div className="flex flex-wrap gap-3 text-sm text-[var(--color-text-muted)]">
-            {footer.social.map((label) => (
-              <span
-                key={label}
-                className="rounded-[var(--radius-sm)] border border-[var(--color-line)] px-3 py-2"
+            {footer.social.map((item) => (
+              <a
+                key={item.label}
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[var(--radius-sm)] border border-[var(--color-line)] px-3 py-2 transition hover:border-[var(--color-line-strong)] hover:text-[var(--color-text)]"
               >
-                {label}
-              </span>
+                {item.label}
+              </a>
             ))}
           </div>
         </div>
