@@ -4,6 +4,7 @@ import CTASection from '../components/shared/CTASection'
 import NumberedItem from '../components/shared/NumberedItem'
 import PartnerWall from '../components/shared/PartnerWall'
 import PPPStrategyBlock from '../components/shared/PPPStrategyBlock'
+import QuoteCarousel from '../components/shared/QuoteCarousel'
 import ThematicCard from '../components/shared/ThematicCard'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
@@ -40,6 +41,7 @@ export default function LandingPage() {
         title={landing.hero.headline}
         subtitle={landing.hero.subhead}
         image="/assets/hero/home-hero.jpeg"
+        slides={landing.hero.slides}
         primaryCTA={{ label: landing.hero.primaryCTA, href: '/resource-centre/publications' }}
         secondaryCTA={{ label: landing.hero.secondaryCTA, href: '/contact' }}
         size="landing"
@@ -221,6 +223,18 @@ export default function LandingPage() {
           <Button className="mt-10" href="/news" variant="secondary">
             {landing.newsAndInsights.cta}
           </Button>
+        </Container>
+      </section>
+
+      <section className="border-b border-[var(--color-line)]">
+        <Container className="py-[var(--section-y)]">
+          <SectionHeader
+            number="09"
+            title="What leaders are saying"
+          />
+          <div className="mt-14">
+            <QuoteCarousel />
+          </div>
         </Container>
       </section>
 

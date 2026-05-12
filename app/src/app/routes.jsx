@@ -9,6 +9,7 @@ const LandingPage = lazy(() => import('../pages/LandingPage'))
 const NewsDetailPage = lazy(() => import('../pages/NewsDetailPage'))
 const NewsPage = lazy(() => import('../pages/NewsPage'))
 const PressStatementsPage = lazy(() => import('../pages/PressStatementsPage'))
+const ProjectSpotlightPage = lazy(() => import('../pages/ProjectSpotlightPage'))
 const PublicationDetailPage = lazy(() => import('../pages/PublicationDetailPage'))
 const PublicationsPage = lazy(() => import('../pages/PublicationsPage'))
 const StrategyPage = lazy(() => import('../pages/StrategyPage'))
@@ -55,6 +56,7 @@ export const routes = [
       { path: 'resource-centre/press-statements', element: lazyElement(PressStatementsPage) },
       { path: 'resource-centre/annual-reports', element: lazyElement(AnnualReportsPage) },
       { path: 'news', element: lazyElement(NewsPage) },
+      { path: 'news/project-spotlight/:slug', element: lazyElement(ProjectSpotlightPage) },
       { path: 'news/:slug', element: lazyElement(NewsDetailPage) },
       { path: 'contact', element: lazyElement(ContactPage) },
     ],

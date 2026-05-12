@@ -10,7 +10,7 @@ export default function ThematicCard({ title, summary, path, diagram }) {
           src={diagram}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -right-20 -top-20 z-0 h-80 w-80 max-w-none object-contain opacity-35 mix-blend-screen blur-[0.2px] saturate-125"
+          className="pointer-events-none absolute -right-20 -top-20 z-0 h-80 w-80 max-w-none object-contain opacity-80 drop-shadow-[0_0_34px_rgba(107,181,120,0.26)] saturate-150 contrast-125"
           initial={{
             x: -130,
             y: 135,
@@ -27,14 +27,14 @@ export default function ThematicCard({ title, summary, path, diagram }) {
             rotateX: 0,
             rotateY: 0,
             rotateZ: 0,
-            opacity: 0.35,
+            opacity: 0.82,
           }}
           whileHover={{
             scale: 1.06,
             rotateX: 10,
             rotateY: -14,
             rotateZ: 5,
-            opacity: 0.5,
+            opacity: 0.95,
           }}
           viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}

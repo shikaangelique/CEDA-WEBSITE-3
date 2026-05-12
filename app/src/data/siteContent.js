@@ -6,6 +6,24 @@ export const siteContent = {
         "The Centre for Extractives and Development Africa is a research and advocacy organisation working across the continent to make sure natural resources translate into real improvements in national life.",
       primaryCTA: 'Explore publications',
       secondaryCTA: 'Get in touch',
+      slides: [
+        {
+          image: '/assets/hero/home-hero.jpeg',
+          title: "Better governance of Africa's mineral wealth, for the people who depend on it.",
+          subhead:
+            "The Centre for Extractives and Development Africa is a research and advocacy organisation working across the continent to make sure natural resources translate into real improvements in national life.",
+        },
+        {
+          image: '/assets/hero/home-hero-communities.png',
+          subhead:
+            'We support communities and civic actors so the people closest to extraction have a real seat at the table.',
+        },
+        {
+          image: '/assets/hero/home-hero-energy.png',
+          subhead:
+            'We help shape policy, evidence, and public accountability for a just energy transition.',
+        },
+      ],
     },
     whatWeDo:
       "CEDA produces evidence-based research, trains the next generation of sector leaders, advises policymakers, and mobilises citizens around the way Africa's mineral and petroleum resources are managed. Our work spans extractives revenue governance, the energy transition and critical minerals, climate policy, gender and social inclusion, and anti-corruption. Established in 2014 and headquartered in Accra, we partner with organisations across Africa and beyond.",

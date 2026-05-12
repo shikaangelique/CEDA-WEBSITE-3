@@ -10,7 +10,7 @@ const navItems = [
   { label: 'About', to: '/about' },
   { label: 'Thematic Areas', to: '/thematic-areas' },
   { label: 'Resource Centre', to: '/resource-centre/publications' },
-  { label: 'News', to: '/news' },
+  { label: 'News & Media', to: '/news' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -38,6 +38,14 @@ const subMenus = [
       { label: 'Publications', to: '/resource-centre/publications' },
       { label: 'Press Statements', to: '/resource-centre/press-statements' },
       { label: 'Annual Reports', to: '/resource-centre/annual-reports' },
+    ],
+  },
+  {
+    match: '/news',
+    items: [
+      { label: 'News and Media', to: '/news' },
+      { label: 'ACEP Spotlight', to: '/news/project-spotlight/acep' },
+      { label: 'CCG Spotlight', to: '/news/project-spotlight/ccg' },
     ],
   },
 ]
