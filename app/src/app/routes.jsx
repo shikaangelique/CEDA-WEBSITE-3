@@ -5,6 +5,7 @@ import Layout from '../components/layout/Layout'
 const AboutPage = lazy(() => import('../pages/AboutPage'))
 const AnnualReportsPage = lazy(() => import('../pages/AnnualReportsPage'))
 const ContactPage = lazy(() => import('../pages/ContactPage'))
+const FeedbackPage = lazy(() => import('../pages/FeedbackPage'))
 const LandingPage = lazy(() => import('../pages/LandingPage'))
 const NewsDetailPage = lazy(() => import('../pages/NewsDetailPage'))
 const NewsPage = lazy(() => import('../pages/NewsPage'))
@@ -59,6 +60,7 @@ export const routes = [
       { path: 'news/project-spotlight/:slug', element: lazyElement(ProjectSpotlightPage) },
       { path: 'news/:slug', element: lazyElement(NewsDetailPage) },
       { path: 'contact', element: lazyElement(ContactPage) },
+      { path: 'review-ceda-site-2026', element: lazyElement(FeedbackPage) },
     ],
   },
 ]
