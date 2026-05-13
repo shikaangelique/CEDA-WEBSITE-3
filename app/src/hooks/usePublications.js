@@ -24,9 +24,17 @@ function matchesSearch(publication, search) {
   return searchable.includes(query)
 }
 
+function escapeSearchTerm(value) {
+  return String(value || '').replace(/[%,]/g, '').trim()
+}
+
 export function usePublications(filters = {}) {
+  const pageSize = filters.pageSize || 9
   const [publications, setPublications] = useState([])
+  const [page, setPage] = useState(0)
+  const [hasMore, setHasMore] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
   const [error, setError] = useState(null)
 
   const stableFilters = useMemo(
@@ -40,10 +48,18 @@ export function usePublications(filters = {}) {
   )
 
   useEffect(() => {
+    setPage(0)
+  }, [stableFilters])
+
+  useEffect(() => {
     let isMounted = true
 
     async function fetchPublications() {
-      setLoading(true)
+      if (page === 0) {
+        setLoading(true)
+      } else {
+        setLoadingMore(true)
+      }
       setError(null)
 
       let query = supabase.from('publications').select('*')
@@ -51,10 +67,15 @@ export function usePublications(filters = {}) {
       if (stableFilters.theme) query = query.eq('theme', stableFilters.theme)
       if (stableFilters.type) query = query.eq('type', stableFilters.type)
       if (stableFilters.year) query = query.eq('year', Number(stableFilters.year))
+      if (stableFilters.search) {
+        const searchTerm = escapeSearchTerm(stableFilters.search)
+        if (searchTerm) query = query.or(`title.ilike.%${searchTerm}%,abstract.ilike.%${searchTerm}%`)
+      }
 
       query = query
         .order('published_at', { ascending: false, nullsFirst: false })
         .order('year', { ascending: false, nullsFirst: false })
+        .range(page * pageSize, page * pageSize + pageSize)
 
       const { data, error: fetchError } = await query
 
@@ -62,12 +83,17 @@ export function usePublications(filters = {}) {
 
       if (fetchError) {
         setError(fetchError)
-        setPublications([])
+        if (page === 0) setPublications([])
+        setHasMore(false)
       } else {
-        setPublications((data || []).filter((publication) => matchesSearch(publication, stableFilters.search)))
+        const pageData = (data || []).slice(0, pageSize)
+        const filtered = pageData.filter((publication) => matchesSearch(publication, stableFilters.search))
+        setHasMore((data || []).length > pageSize)
+        setPublications((current) => (page === 0 ? filtered : [...current, ...filtered]))
       }
 
       setLoading(false)
+      setLoadingMore(false)
     }
 
     fetchPublications()
@@ -75,7 +101,11 @@ export function usePublications(filters = {}) {
     return () => {
       isMounted = false
     }
-  }, [stableFilters])
+  }, [page, pageSize, stableFilters])
 
-  return { publications, loading, error }
+  function loadMore() {
+    if (!loading && !loadingMore && hasMore) setPage((current) => current + 1)
+  }
+
+  return { publications, loading, loadingMore, error, hasMore, loadMore }
 }

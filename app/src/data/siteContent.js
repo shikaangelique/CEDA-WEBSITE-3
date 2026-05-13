@@ -213,7 +213,7 @@ export const siteContent = {
   },
   contact: {
     intro:
-      "We'd like to hear from you. Whether you're a partner organisation, a researcher, a journalist, a community group, or a member of the public, we read every message.",
+      "Whether you're a partner organisation, a researcher, a journalist, a community group, or a member of the public, we read every message.",
     address: '222 Westland Boulevard Road, Madina, Accra, Ghana',
     phone: ['+233 54 011 5573', '+233 55 494 9652'],
     email: 'admin@cedaghana.com',

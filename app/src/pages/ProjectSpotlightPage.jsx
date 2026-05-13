@@ -117,6 +117,66 @@ export default function ProjectSpotlightPage() {
         </Container>
       </section>
 
+      {project.upcoming ? (
+        <section className="border-t border-[rgba(53,90,60,0.22)] bg-[linear-gradient(135deg,rgba(232,235,217,0.96),rgba(196,200,179,0.84)_44%,rgba(107,181,120,0.18)_100%)] text-[var(--color-bg)]">
+          <Container className="py-[var(--section-y)]">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+              <div className="rounded-[var(--radius-md)] border border-[rgba(53,90,60,0.18)] bg-[rgba(255,255,255,0.34)] p-6 md:p-8">
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-[#355a3c]">
+                  {project.upcoming.kicker}
+                </p>
+                <h2 className="mt-5 font-serif text-4xl font-light leading-none tracking-[-0.035em] md:text-6xl">
+                  {project.upcoming.title}
+                </h2>
+                <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-[#585e4d]">
+                  {project.upcoming.timeline}
+                </p>
+                <p className="mt-8 text-lg leading-8 text-[#3f4739]">
+                  {project.upcoming.summary}
+                </p>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="rounded-[var(--radius-md)] border border-[rgba(53,90,60,0.18)] bg-[rgba(255,255,255,0.4)] p-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-[#355a3c]">
+                    Delivery markers
+                  </p>
+                  <div className="mt-6 grid gap-3">
+                    {project.upcoming.stats.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[var(--radius-sm)] border border-[rgba(53,90,60,0.16)] bg-[rgba(232,235,217,0.42)] px-4 py-3 text-sm font-medium leading-5 text-[#263722]"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[rgba(53,90,60,0.18)] bg-[rgba(255,255,255,0.28)] p-6">
+                  <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(53,90,60,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(53,90,60,0.1)_1px,transparent_1px)] [background-size:26px_26px]" />
+                  <div className="relative">
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-[#355a3c]">
+                      Workstream path
+                    </p>
+                    <div className="mt-7 grid gap-4">
+                      {project.upcoming.phases.map((phase, index) => (
+                        <div key={phase} className="grid grid-cols-[2rem_1fr] gap-3">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#355a3c] bg-[#e8ebd9] font-mono text-xs text-[#355a3c]">
+                            {index + 1}
+                          </span>
+                          <p className="pt-1 text-sm leading-6 text-[#3f4739]">{phase}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <section className="border-t border-[var(--color-line)] bg-[rgba(17,21,15,0.42)]">
         <Container className="py-16">
           <div className="grid gap-6 rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(24,29,22,0.72)] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">

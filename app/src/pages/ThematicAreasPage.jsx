@@ -12,7 +12,7 @@ export default function ThematicAreasPage() {
         eyebrow="Thematic areas"
         title="Four areas anchor our work."
         subtitle={thematicAreasOverview.intro}
-        image="/assets/hero/thematic-areas-hero.jpg"
+        image="/assets/hero/thematic-areas-hero.png"
       />
 
       <section className="border-b border-[var(--color-line)]">

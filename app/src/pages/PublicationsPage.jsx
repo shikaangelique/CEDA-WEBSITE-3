@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import FilterBar from '../components/publications/FilterBar'
 import PublicationGrid from '../components/publications/PublicationGrid'
+import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -28,7 +29,7 @@ export default function PublicationsPage() {
     year: searchParams.get('year') || '',
   }
 
-  const { publications, loading, error } = usePublications(filters)
+  const { publications, loading, loadingMore, error, hasMore, loadMore } = usePublications(filters)
 
   const options = useMemo(
     () => ({
@@ -83,6 +84,13 @@ export default function PublicationsPage() {
           <div className="mt-10">
             <PublicationGrid publications={publications} loading={loading} error={error} />
           </div>
+          {hasMore && !loading ? (
+            <div className="mt-10 flex justify-center">
+              <Button type="button" variant="secondary" onClick={loadMore} disabled={loadingMore}>
+                {loadingMore ? 'Loading' : 'Load more publications'}
+              </Button>
+            </div>
+          ) : null}
         </Container>
       </section>
     </>

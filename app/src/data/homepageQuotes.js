@@ -9,7 +9,7 @@ export const homepageQuotes = [
   {
     quote:
       'What Ghana needs is the enforcement of contractual obligations, not the acquisition of non-performing assets. There is too much poverty in this country for the state to spend scarce public funds on wasteful, trumped-up ventures.',
-    author: 'Benjamin (Ben) Boakye',
+    author: 'Benjamin Boakye',
     role: 'Executive Director, Africa Centre for Energy Policy (ACEP)',
     source: 'GhanaWeb and The Herald Ghana, 20 to 21 November 2025.',
   },
@@ -36,7 +36,7 @@ export const homepageQuotes = [
   {
     quote:
       'What drives me is the conviction in the potential to reduce poverty through policy reforms, transparency and accountability in the governance of resources.',
-    author: 'Benjamin (Ben) Boakye',
+    author: 'Benjamin Boakye',
     role: 'Executive Director, Africa Centre for Energy Policy (ACEP)',
     source: 'OGEL Journal contributing author profile.',
   },

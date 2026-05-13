@@ -1,6 +1,7 @@
 import { boardContent, boardMembers, team } from '../data/team'
 import Card from '../components/ui/Card'
 import Container from '../components/ui/Container'
+import FullFrameImage from '../components/ui/FullFrameImage'
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 
@@ -89,9 +90,9 @@ export default function TeamPage() {
     <>
       <PageHero
         eyebrow="Board and team"
-        title="The people behind CEDA's research, advocacy, and convening."
+        title="The people behind CEDA's research, advocacy and delivery"
         subtitle={boardContent.intro}
-        image="/assets/hero/team-hero.jpg"
+        image="/assets/hero/team-hero-group.jpg"
       />
 
       <section className="border-b border-[var(--color-line)]">
@@ -118,6 +119,12 @@ export default function TeamPage() {
           </div>
         </Container>
       </section>
+
+      <FullFrameImage
+        src="/assets/team/team-group-2.jpg"
+        alt="CEDA team group photograph"
+        caption="CEDA's work is carried by a multidisciplinary team working across extractives governance, energy transition, accountability, and inclusion."
+      />
     </>
   )
 }

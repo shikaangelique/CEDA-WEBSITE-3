@@ -73,6 +73,27 @@ export const projectSpotlights = [
           'The two-storey digital learning hub now serves thousands of students, supports 22 basic schools and two secondary schools, and trains over 1,300 educators annually in modern digital skills.',
       },
     ],
+    upcoming: {
+      kicker: 'Up and coming',
+      title: 'Phase 2 in Tano North',
+      timeline: 'March 2026 - December 2026',
+      summary:
+        "The next phase focuses on Tano North Municipal Assembly, a new mining district preparing for Newmont's Ahafo North Gold Mine. The work intervenes before mineral revenues begin flowing, helping the district build forecasting, planning, citizen oversight, and inclusive governance systems early.",
+      stats: [
+        '14 TNMA staff trained',
+        '16 local accountability actors trained',
+        '2 community sensitisation events',
+        '100 community members engaged',
+        '430 learning materials distributed',
+      ],
+      phases: [
+        'Project inception and M&E framework',
+        'Community entry and training needs assessment',
+        'Legal, ESIA, MDF, and district plan review',
+        'Capacity building on forecasting, FPIC, compensation, and oversight',
+        'Practical tools, guidelines, and learning materials',
+      ],
+    },
   },
   {
     slug: 'ccg',
@@ -144,6 +165,27 @@ export const projectSpotlights = [
           'D1-D4 have been validated through direct working sessions with sector participants, high-level roundtables, group stakeholder validation engagements, and Gender Advisory Committee review, ensuring outputs are refined by the actors expected to use them.',
       },
     ],
+    upcoming: {
+      kicker: 'Up and coming',
+      title: 'From evidence to influence',
+      timeline: 'Next twelve months',
+      summary:
+        'The project is moving from analysis to published outputs and policy influence, with flagship working papers, policy briefings, advocacy planning, final validation, and a public-facing mini-documentary.',
+      stats: [
+        'D2 cost and viability working paper',
+        'D3 local manufacturing and skills assessment',
+        'D4 electrification constraints paper',
+        'D5-D7 policy briefings, advocacy, and synthesis',
+        'D8-D9 validation and mini-documentary',
+      ],
+      phases: [
+        'Total Cost of Ownership analysis from field surveys',
+        'Local assembly, servicing, and workforce readiness pathway',
+        'Grid readiness and charging infrastructure scenarios',
+        'Policy briefings for NDC and transport regulation uptake',
+        'Mini-documentary featuring riders, engineers, manufacturers, and GAC members',
+      ],
+    },
   },
 ]
 
