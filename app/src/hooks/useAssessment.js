@@ -10,7 +10,7 @@ function getOptionId(row) {
 }
 
 function getCount(row) {
-  return Number(row.response_count ?? 0)
+  return Number(row.count ?? row.response_count ?? 0)
 }
 
 function normalizeRows(rows = []) {
