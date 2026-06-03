@@ -60,12 +60,15 @@ export default function AboutPage() {
           />
           <div className="mt-14 grid gap-5 lg:grid-cols-5">
             {about.operationalAreas.map((area, index) => (
-              <Card key={area.title}>
-                <p className="font-mono text-xs tracking-[0.12em] text-[var(--color-accent)]">
+              <Card
+                key={area.title}
+                className="border-[rgba(47,102,81,0.2)] bg-[linear-gradient(155deg,rgba(63,125,100,0.96),rgba(47,102,81,0.92)_58%,rgba(35,77,61,0.98))] shadow-[0_22px_54px_rgba(24,49,38,0.12)]"
+              >
+                <p className="font-mono text-xs tracking-[0.12em] text-[rgba(246,247,241,0.7)]">
                   {String(index + 1).padStart(2, '0')}
                 </p>
-                <h3 className="mt-5 text-xl font-medium text-[var(--color-text)]">{area.title}</h3>
-                <p className="body-md mt-4">{area.text}</p>
+                <h3 className="mt-5 text-xl font-medium text-[var(--color-accent-contrast)]">{area.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[rgba(246,247,241,0.82)]">{area.text}</p>
               </Card>
             ))}
           </div>

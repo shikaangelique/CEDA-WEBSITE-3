@@ -24,7 +24,7 @@ function EngagementLineGraph({ percentages }) {
   })
 
   return (
-    <div className="mt-10 overflow-hidden rounded-[var(--radius-md)] border border-[rgba(136,203,147,0.22)] bg-[linear-gradient(135deg,rgba(232,235,217,0.96),rgba(196,200,179,0.82)_42%,rgba(53,90,60,0.28)_100%)] text-[var(--color-bg)] shadow-[0_24px_90px_rgba(0,0,0,0.24)]">
+    <div className="mt-10 overflow-hidden rounded-[var(--radius-md)] border border-[rgba(63,125,100,0.2)] bg-[linear-gradient(135deg,rgba(251,252,247,0.98),rgba(228,236,225,0.9)_42%,rgba(63,125,100,0.2)_100%)] text-[var(--color-text)] shadow-[0_24px_90px_rgba(24,49,38,0.12)]">
       <div className="grid gap-6 p-5 md:p-6 lg:grid-cols-[0.58fr_1.42fr] lg:items-stretch">
         <div className="flex flex-col justify-between rounded-[var(--radius-sm)] border border-[rgba(53,90,60,0.16)] bg-[rgba(255,255,255,0.32)] p-5">
           <div>
@@ -165,7 +165,7 @@ export default function AssessmentWidget() {
           {assessmentQuestions.map((question) => (
             <div
               key={question.id}
-              className="rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(255,255,255,0.03)] p-5"
+            className="rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.74)] p-5"
             >
               <p className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-text-faint)]">
                 {question.label}

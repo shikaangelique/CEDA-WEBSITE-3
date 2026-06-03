@@ -48,13 +48,11 @@ export default function PageHero({
             key={currentSlide.image}
             src={currentSlide.image}
             alt=""
-            className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70"
+            className="absolute inset-0 -z-20 h-full w-full object-cover opacity-82"
             initial={{ opacity: 0, x: '9%', scale: 1.04 }}
-            animate={{ opacity: 0.7, x: '0%', scale: 1 }}
+            animate={{ opacity: 0.82, x: '0%', scale: 1 }}
             transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
           />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-bg)] via-[rgba(10,12,10,0.58)] to-[rgba(10,12,10,0.22)]" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[rgba(10,12,10,0.86)] via-transparent to-[rgba(10,12,10,0.28)]" />
         </>
       ) : (
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(107,181,120,0.16),transparent_65%)]" />
@@ -67,14 +65,18 @@ export default function PageHero({
           animate={isLanding ? undefined : { scale: 1, y: 0, opacity: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          {eyebrow ? <Eyebrow withLine>{eyebrow}</Eyebrow> : null}
+          {eyebrow ? (
+            <Eyebrow withLine className="!text-white [&>span:first-child]:!bg-white">
+              {eyebrow}
+            </Eyebrow>
+          ) : null}
           <div className={clsx(isLanding && 'min-h-[clamp(18rem,34vw,28rem)]')}>
             {currentTitle ? (
               <TextAppear
                 key={`hero-title-${currentTitle}`}
                 as="h1"
                 className={clsx(
-                  'mt-8 text-[var(--color-text)]',
+                  'mt-8 text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.28)]',
                   isLanding ? 'display-lg' : 'heading-xl max-w-4xl',
                 )}
               >
@@ -86,12 +88,12 @@ export default function PageHero({
                 key={`hero-subtitle-${currentSubtitle}`}
                 className={clsx(
                   currentTitle ? 'mt-8' : 'pt-[clamp(6rem,13vw,12rem)]',
-                  'max-w-3xl',
+                  'max-w-3xl !text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.32)]',
                   isLanding
                     ? currentTitle
-                      ? 'body-lg max-w-2xl'
-                      : 'text-2xl font-light leading-tight text-[var(--color-text-muted)] md:text-4xl'
-                    : 'body-lg',
+                      ? 'body-lg max-w-2xl !text-white'
+                      : 'text-2xl font-light leading-tight !text-white md:text-4xl'
+                    : 'body-lg !text-white',
                 )}
                 delay={0.12}
               >
@@ -119,7 +121,7 @@ export default function PageHero({
                     'h-2.5 rounded-full transition',
                     index === activeSlide
                       ? 'w-10 bg-[var(--color-accent)]'
-                      : 'w-2.5 bg-[rgba(232,235,217,0.34)] hover:bg-[rgba(232,235,217,0.55)]',
+                      : 'w-2.5 bg-[rgba(24,49,38,0.18)] hover:bg-[rgba(24,49,38,0.34)]',
                   ].join(' ')}
                   aria-label={`Show hero slide ${index + 1}`}
                   onClick={() => setActiveSlide(index)}

@@ -10,7 +10,7 @@ export default function MobileMenu({
   if (!isOpen) return null
 
   return (
-    <div className="border-t border-[var(--color-line)] bg-[rgba(10,12,10,0.96)] backdrop-blur-xl md:hidden">
+    <div className="border-t border-[var(--color-line)] bg-[rgba(246,247,241,0.96)] backdrop-blur-xl md:hidden">
       <div className="px-[var(--container-x)] py-6">
         <p className="mb-6 max-w-xs text-sm leading-6 text-[var(--color-text-faint)]">{organisation}</p>
         <nav className="flex flex-col">
@@ -47,7 +47,7 @@ export default function MobileMenu({
                     [
                       'rounded-[var(--radius-sm)] border px-3 py-3 text-sm transition',
                       isActive
-                        ? 'border-[rgba(107,181,120,0.5)] bg-[rgba(107,181,120,0.14)] text-[var(--color-accent-bright)]'
+                        ? 'border-[rgba(33,75,60,0.3)] bg-[rgba(33,75,60,0.08)] text-[var(--color-accent)]'
                         : 'border-[var(--color-line)] text-[var(--color-text-muted)]',
                     ].join(' ')
                   }

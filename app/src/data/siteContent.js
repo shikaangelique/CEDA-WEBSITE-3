@@ -14,12 +14,12 @@ export const siteContent = {
             "The Centre for Extractives and Development Africa is a research and advocacy organisation working across the continent to make sure natural resources translate into real improvements in national life.",
         },
         {
-          image: '/assets/hero/home-hero-communities.png',
+          image: '/assets/hero/scroll-image-replacement-2.jpg',
           subhead:
             'We support communities and civic actors so the people closest to extraction have a real seat at the table.',
         },
         {
-          image: '/assets/hero/home-hero-energy.png',
+          image: '/assets/hero/scroll-image-replacement-3.png',
           subhead:
             'We help shape policy, evidence, and public accountability for a just energy transition.',
         },

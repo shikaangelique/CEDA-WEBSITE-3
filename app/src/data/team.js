@@ -1,6 +1,8 @@
 export const boardContent = {
   intro:
-    "The Governing Board provides strategic direction, sets organisational policy, monitors compliance, approves annual plans and budgets, and reviews the quality of CEDA's work. The board is composed of leaders drawn from law, energy and extractives policy, governance reform, and international development, with the Executive Director sitting as a permanent member and Board Secretary.",
+    "The Governing Board provides strategic direction, sets organisational policy, monitors compliance, approves annual plans and budgets, and reviews the quality of CEDA's work.",
+  announcementIntro:
+    'The board is composed of leaders drawn from law, energy and extractives policy, governance reform, and international development, with the Executive Director sitting as a permanent member and Board Secretary.',
   announcement: 'CEDA launched its new Governing Board on 30th March 2026.',
   groupImage: '/assets/board/group-picture.jpg',
 }

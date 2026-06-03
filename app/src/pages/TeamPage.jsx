@@ -52,7 +52,7 @@ function BoardAnnouncement() {
         <div className="flex flex-col justify-end p-6 md:p-8">
           <p className="eyebrow">Board launch</p>
           <h3 className="heading-lg mt-6">{boardContent.announcement}</h3>
-          <p className="body-md mt-6">{boardContent.intro}</p>
+          <p className="body-md mt-6">{boardContent.announcementIntro}</p>
         </div>
       </div>
     </Card>
@@ -91,7 +91,16 @@ export default function TeamPage() {
       <PageHero
         eyebrow="Board and team"
         title="The people behind CEDA's research, advocacy and delivery"
-        subtitle={boardContent.intro}
+        subtitle={
+          <>
+            <span className="invisible block">&nbsp;</span>
+            <span className="invisible block">&nbsp;</span>
+            <span className="invisible block">&nbsp;</span>
+            <span className="invisible block">&nbsp;</span>
+            <span className="invisible block">&nbsp;</span>
+            <span className="invisible block">&nbsp;</span>
+          </>
+        }
         image="/assets/hero/team-hero-group.jpg"
       />
 

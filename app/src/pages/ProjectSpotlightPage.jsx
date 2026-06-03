@@ -118,7 +118,7 @@ export default function ProjectSpotlightPage() {
       </section>
 
       {project.upcoming ? (
-        <section className="border-t border-[rgba(53,90,60,0.22)] bg-[linear-gradient(135deg,rgba(232,235,217,0.96),rgba(196,200,179,0.84)_44%,rgba(107,181,120,0.18)_100%)] text-[var(--color-bg)]">
+        <section className="border-t border-[rgba(53,90,60,0.22)] bg-[linear-gradient(135deg,rgba(232,235,217,0.96),rgba(196,200,179,0.84)_44%,rgba(107,181,120,0.18)_100%)] text-[var(--color-text)]">
           <Container className="py-[var(--section-y)]">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
               <div className="rounded-[var(--radius-md)] border border-[rgba(53,90,60,0.18)] bg-[rgba(255,255,255,0.34)] p-6 md:p-8">
@@ -177,9 +177,9 @@ export default function ProjectSpotlightPage() {
         </section>
       ) : null}
 
-      <section className="border-t border-[var(--color-line)] bg-[rgba(17,21,15,0.42)]">
+      <section className="border-t border-[var(--color-line)] bg-[rgba(228,236,225,0.54)]">
         <Container className="py-16">
-          <div className="grid gap-6 rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(24,29,22,0.72)] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+          <div className="grid gap-6 rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.84)] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
             <div>
               <p className="eyebrow">Connect with the project</p>
               <h2 className="mt-4 text-3xl font-medium leading-tight text-[var(--color-text)]">

@@ -24,7 +24,7 @@ function SelectFilter({ label, value, options, onChange }) {
 
 export default function FilterBar({ filters, options, onChange, onReset }) {
   return (
-    <div className="rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(17,21,15,0.72)] p-4">
+    <div className="rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.9)] p-4">
       <div className="grid gap-4 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.6fr_auto] lg:items-end">
         <label className="grid gap-2">
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-[var(--color-text-faint)]">

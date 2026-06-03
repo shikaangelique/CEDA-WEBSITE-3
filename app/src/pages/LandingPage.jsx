@@ -88,7 +88,7 @@ export default function LandingPage() {
         </Container>
       </section>
 
-      <section className="border-b border-[var(--color-line)] bg-[rgba(17,21,15,0.42)]">
+      <section className="border-b border-[var(--color-line)] bg-[rgba(228,236,225,0.58)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
             number="04"
@@ -112,7 +112,7 @@ export default function LandingPage() {
               ? Array.from({ length: 4 }).map((_, index) => (
                   <Card
                     key={index}
-                    className="min-h-64 animate-pulse bg-[rgba(232,235,217,0.04)]"
+                    className="min-h-64 animate-pulse border-[rgba(47,102,81,0.18)] bg-[linear-gradient(145deg,rgba(63,125,100,0.94),rgba(47,102,81,0.9))]"
                   />
                 ))
               : null}
@@ -128,16 +128,18 @@ export default function LandingPage() {
               ? featuredPublications.map((publication) => (
                   <Card
                     key={publication.id || publication.slug}
-                    className="group relative min-h-64 overflow-hidden p-0"
+                    className="group relative min-h-[20rem] overflow-hidden border-[rgba(47,102,81,0.18)] bg-[linear-gradient(155deg,rgba(63,125,100,0.96),rgba(47,102,81,0.92)_58%,rgba(35,77,61,0.98))] p-0 shadow-[0_26px_64px_rgba(24,49,38,0.14)]"
                   >
                     <Link
                       to={getPublicationPath(publication)}
-                      className="flex min-h-64 flex-col p-6"
+                      className="flex min-h-[20rem] h-full flex-col p-6"
                     >
                       <div className="flex min-h-20 items-end justify-between gap-4">
-                        <p className="eyebrow pb-1">{publication.year || publication.type}</p>
+                        <p className="pb-1 font-mono text-xs uppercase tracking-[0.12em] text-[rgba(246,247,241,0.74)]">
+                          {publication.year || publication.type}
+                        </p>
                         {publication.thumbnail_url ? (
-                          <div className="h-20 w-14 shrink-0 overflow-hidden rounded-[var(--radius-sm)] border border-[var(--color-line-strong)] bg-[var(--color-bg-elevated)] shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+                          <div className="h-20 w-14 shrink-0 overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(246,247,241,0.18)] bg-[rgba(246,247,241,0.12)] shadow-[0_12px_30px_rgba(24,49,38,0.22)]">
                             <img
                               src={publication.thumbnail_url}
                               alt=""
@@ -148,12 +150,14 @@ export default function LandingPage() {
                         ) : null}
                       </div>
 
-                      <h3 className="mt-8 text-xl font-medium text-[var(--color-text)]">
+                      <h3 className="mt-8 text-xl font-medium text-[var(--color-accent-contrast)]">
                         {publication.title}
                       </h3>
-                      <span className="mt-auto inline-block pt-8 font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent)] transition group-hover:text-[var(--color-accent-bright)]">
-                        View publication
-                      </span>
+                      <div className="mt-auto pt-8">
+                        <span className="inline-flex min-h-10 items-center rounded-[var(--radius-sm)] border border-[rgba(246,247,241,0.18)] bg-[rgba(246,247,241,0.08)] px-4 font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent-contrast)] transition group-hover:border-[rgba(246,247,241,0.34)] group-hover:bg-[rgba(246,247,241,0.14)]">
+                          View publication
+                        </span>
+                      </div>
                     </Link>
                   </Card>
                 ))
@@ -185,10 +189,13 @@ export default function LandingPage() {
         <Container className="py-[var(--section-y)]">
           <SectionHeader number="07" title="Our partners" />
           <PartnerWall partners={partners} className="mt-14" />
+          <p className="mt-4 text-sm text-[var(--color-text-faint)]">
+            Hover over a logo to view it in full colour.
+          </p>
         </Container>
       </section>
 
-      <section className="border-b border-[var(--color-line)] bg-[rgba(17,21,15,0.42)]">
+      <section className="border-b border-[var(--color-line)] bg-[rgba(228,236,225,0.54)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
             number="08"
@@ -239,6 +246,7 @@ export default function LandingPage() {
       </section>
 
       <CTASection
+        background="rgba(63,125,100,0.42)"
         title="Get in touch"
         text={landing.getInTouch.text}
         cta={{ label: landing.getInTouch.cta, href: '/contact' }}

@@ -89,7 +89,7 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-line)] bg-[rgba(10,12,10,0.84)] p-5">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-line)] bg-[rgba(251,252,247,0.88)] p-5">
               <p className="body-md">{contact.address}</p>
               <a
                 href={contact.mapUrl}

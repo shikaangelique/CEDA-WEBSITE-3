@@ -191,7 +191,7 @@ function StrategyGraph() {
           Click node to see related deliverables
         </p>
       </div>
-      <div className="relative min-h-[38rem] overflow-hidden bg-[radial-gradient(circle_at_50%_40%,rgba(107,181,120,0.13),transparent_38%),var(--color-bg-soft)]">
+      <div className="relative min-h-[38rem] overflow-hidden bg-[radial-gradient(circle_at_50%_40%,rgba(63,125,100,0.16),transparent_38%),var(--color-bg-soft)]">
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           {deliverables.flatMap((deliverable, index) =>
             deliverable.connections.map((connection) => {
@@ -206,8 +206,9 @@ function StrategyGraph() {
                     x2: addDrift(node.x, node.driftX),
                     y2: addDrift(node.y, node.driftY),
                   }}
-                  stroke="rgba(232,235,217,0.16)"
-                  strokeWidth="0.18"
+                  stroke="rgba(47,102,81,0.42)"
+                  strokeWidth="0.38"
+                  strokeDasharray="1.2 1.1"
                   initial={{
                     x1: deliverable.x,
                     y1: deliverable.y,
@@ -235,7 +236,7 @@ function StrategyGraph() {
         {Object.entries(strategyNodes).map(([id, node], index) => (
           <motion.div
             key={id}
-            className="absolute z-20 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border text-center font-mono text-[0.72rem] uppercase tracking-[0.1em] text-[var(--color-bg)] shadow-[0_0_44px_rgba(107,181,120,0.2)]"
+            className="absolute z-20 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border text-center font-mono text-[0.72rem] uppercase tracking-[0.1em] text-[var(--color-accent-contrast)] shadow-[0_0_44px_rgba(63,125,100,0.18)]"
             style={{ left: `${node.x}%`, top: `${node.y}%`, background: node.color, borderColor: node.color }}
             initial={{ scale: 0.72, opacity: 0, x: 0, y: 0 }}
             whileInView={{
@@ -280,11 +281,11 @@ function StrategyGraph() {
             <Link
               to={deliverable.href}
               aria-label={`Open ${deliverable.full}`}
-              className="flex h-20 w-20 items-center justify-center rounded-full border border-[rgba(139,157,195,0.55)] bg-[rgba(139,157,195,0.2)] text-center font-mono text-[0.55rem] uppercase leading-tight tracking-[0.06em] text-[var(--color-text)] backdrop-blur-md transition hover:border-[var(--color-accent)] hover:bg-[rgba(107,181,120,0.2)]"
+              className="flex h-20 w-20 items-center justify-center rounded-full border border-[rgba(63,125,100,0.3)] bg-[rgba(251,252,247,0.84)] text-center font-mono text-[0.55rem] uppercase leading-tight tracking-[0.06em] text-[var(--color-text)] backdrop-blur-md transition hover:border-[var(--color-accent)] hover:bg-[rgba(228,236,225,0.92)]"
             >
               {deliverable.label}
             </Link>
-            <div className="pointer-events-none absolute left-1/2 top-full mt-3 w-60 -translate-x-1/2 rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(10,12,10,0.94)] p-3 text-xs leading-5 text-[var(--color-text-muted)] opacity-0 shadow-xl transition group-hover:opacity-100">
+            <div className="pointer-events-none absolute left-1/2 top-full mt-3 w-60 -translate-x-1/2 rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.96)] p-3 text-xs leading-5 text-[var(--color-text-muted)] opacity-0 shadow-xl transition group-hover:opacity-100">
               <span className="block text-[var(--color-text)]">{deliverable.full}</span>
               <span className="mt-2 block font-mono uppercase tracking-[0.1em] text-[var(--color-accent)]">
                 Open deliverable
@@ -299,7 +300,7 @@ function StrategyGraph() {
 
 export default function StrategyFramework() {
   return (
-    <section className="border-b border-[var(--color-line)] bg-[rgba(17,21,15,0.36)]">
+    <section className="border-b border-[var(--color-line)] bg-[rgba(228,236,225,0.56)]">
       <Container className="py-[var(--section-y)]">
         <SectionHeader
           title="Energy Transition and Critical Minerals Strategy"
@@ -314,7 +315,7 @@ export default function StrategyFramework() {
                 <div className="flex items-start gap-4 border-b border-[var(--color-line)] pb-6">
                   <div
                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-md)]"
-                    style={{ background: pillar.color, color: 'var(--color-bg)' }}
+                    style={{ background: pillar.color, color: 'var(--color-accent-contrast)' }}
                   >
                     <Icon size={24} strokeWidth={1.7} />
                   </div>
@@ -329,7 +330,7 @@ export default function StrategyFramework() {
                   {pillar.activities.map(([title, text]) => (
                     <div
                       key={title}
-                      className="rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(255,255,255,0.03)] p-4"
+                      className="rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.72)] p-4"
                     >
                       <div className="flex items-center gap-3">
                         <span className="h-2 w-2 rounded-full" style={{ background: pillar.color }} />
@@ -348,7 +349,7 @@ export default function StrategyFramework() {
           {partners.map((partner) => (
             <span
               key={partner}
-              className="rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(255,255,255,0.04)] px-3 py-2 text-xs text-[var(--color-text-muted)]"
+              className="rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[rgba(251,252,247,0.74)] px-3 py-2 text-xs text-[var(--color-text-muted)]"
             >
               {partner}
             </span>
