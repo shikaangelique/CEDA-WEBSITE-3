@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const variants = {
   primary:
-    'border-[var(--color-accent)] bg-[var(--color-accent)] text-[var(--color-bg)] hover:bg-[var(--color-accent-bright)] hover:border-[var(--color-accent-bright)]',
+    'border-[var(--color-accent)] bg-[var(--color-accent)] text-[var(--color-accent-contrast)] hover:bg-[var(--color-accent-bright)] hover:border-[var(--color-accent-bright)]',
   secondary:
-    'border-[var(--color-line-strong)] bg-[rgba(232,235,217,0.04)] text-[var(--color-text)] hover:border-[var(--color-accent-dim)] hover:bg-[rgba(107,181,120,0.1)]',
+    'border-[var(--color-line-strong)] bg-[rgba(255,255,255,0.72)] text-[var(--color-text)] hover:border-[var(--color-accent-dim)] hover:bg-[rgba(33,75,60,0.08)]',
   ghost:
     'border-transparent bg-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-line)]',
 }

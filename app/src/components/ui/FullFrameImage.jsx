@@ -17,7 +17,7 @@ export default function FullFrameImage({
         <div className="absolute inset-0 -z-20 bg-[var(--color-bg-card)]" />
       )}
       {overlay ? (
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[rgba(10,12,10,0.76)] via-transparent to-[rgba(10,12,10,0.22)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[rgba(246,247,241,0.72)] via-[rgba(246,247,241,0.12)] to-[rgba(47,102,81,0.16)]" />
       ) : null}
       {caption ? (
         <Container className="flex min-h-[inherit] items-end pb-8">

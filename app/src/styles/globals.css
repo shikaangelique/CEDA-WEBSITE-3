@@ -16,10 +16,12 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(107, 181, 120, 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201, 197, 119, 0.04), transparent 60%),
+    radial-gradient(ellipse 82% 56% at 50% -10%, rgba(33, 75, 60, 0.12), transparent 62%),
+    radial-gradient(ellipse 70% 44% at 100% 100%, rgba(158, 153, 100, 0.08), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 247, 241, 0.96)),
     var(--color-bg);
   background-attachment: fixed;
+  color: var(--color-text);
 }
 
 img {
@@ -34,5 +36,5 @@ a {
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-accent-contrast);
 }

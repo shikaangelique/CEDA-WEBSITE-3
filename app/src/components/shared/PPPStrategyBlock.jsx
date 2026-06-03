@@ -35,7 +35,7 @@ function DiagramNode({ pillar, index }) {
 function PillarText({ pillar, index }) {
   return (
     <motion.div
-      className="relative isolate min-h-48 overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(107,181,120,0.18)] bg-[rgba(10,12,10,0.72)] p-4 backdrop-blur-sm"
+      className="relative isolate min-h-48 overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(47,102,81,0.18)] bg-[rgba(251,252,247,0.82)] p-4 backdrop-blur-sm"
       animate={{
         opacity: [0, 0, 0, 0, 1, 1, 0],
         y: [8, 8, 8, 8, 0, 0, -4],
@@ -47,7 +47,7 @@ function PillarText({ pillar, index }) {
         times: loopTimes,
       }}
     >
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(10,12,10,0.34)] via-[rgba(10,12,10,0.72)] to-[rgba(10,12,10,0.9)]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(251,252,247,0.16)] via-[rgba(228,236,225,0.64)] to-[rgba(228,236,225,0.9)]" />
       <div className="relative z-10">
         <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-[var(--color-accent)]">
           0{index + 1}

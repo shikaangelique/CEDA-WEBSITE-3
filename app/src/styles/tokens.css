@@ -1,27 +1,28 @@
 :root {
   /* Core backgrounds */
-  --color-bg: #0a0c0a;
-  --color-bg-soft: #11150f;
-  --color-bg-card: #181d16;
-  --color-bg-elevated: #20261d;
+  --color-bg: #f6f7f1;
+  --color-bg-soft: #eef2e8;
+  --color-bg-card: #fbfcf7;
+  --color-bg-elevated: #e4ece1;
 
   /* Lines */
-  --color-line: #232a1f;
-  --color-line-strong: #303a29;
+  --color-line: #d5ddd1;
+  --color-line-strong: #aab8a7;
 
   /* Text */
-  --color-text: #e8ebd9;
-  --color-text-muted: #c4c8b3;
-  --color-text-faint: #898f78;
-  --color-text-dim: #585e4d;
+  --color-text: #183126;
+  --color-text-muted: #3f5a4d;
+  --color-text-faint: #6a7d71;
+  --color-text-dim: #8d9b92;
 
   /* Accents */
-  --color-accent: #6bb578;
-  --color-accent-bright: #88cb93;
-  --color-accent-dim: #355a3c;
-  --color-secondary: #c9c577;
-  --color-secondary-bright: #ddd98b;
-  --color-rose: #c47a6a;
+  --color-accent: #2f6651;
+  --color-accent-bright: #3f7d64;
+  --color-accent-dim: #234d3d;
+  --color-accent-contrast: #f6f7f1;
+  --color-secondary: #9e9964;
+  --color-secondary-bright: #b0aa75;
+  --color-rose: #a86e5f;
 
   /* Typography */
   --font-serif: "Fraunces", Georgia, serif;
