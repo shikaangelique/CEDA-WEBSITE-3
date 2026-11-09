@@ -14,7 +14,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="We'd like to hear from you."
         subtitle={contact.intro}
-        image="/assets/hero/contact-hero.jpeg"
+        image="/assets/hero/contact-hero.webp"
       />
 
       <section className="border-b border-[var(--color-line)]">
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
       <section>
         <Container className="py-[var(--section-y)]">
-          <SectionHeader title="Visit us" intro={contact.visitUs} />
+          <SectionHeader title="Visit us" />
           <div className="mt-10 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-line)] bg-[var(--color-bg-card)]">
             <iframe
               title="CEDA office location"

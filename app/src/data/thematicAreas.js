@@ -9,8 +9,8 @@ export const thematicAreas = [
   {
     slug: 'youth-development',
     path: '/thematic-areas/youth-development',
-    diagram: '/assets/thematic/structural/youth-development.svg',
-    heroImage: '/assets/hero/youth-development-hero.jpg',
+    diagram: '/assets/thematic/structural/youth-development.webp',
+    heroImage: '/assets/hero/youth-development-hero.webp',
     title: 'Youth Development in Natural Resources Management',
     summary:
       "Africa is the world's youngest continent and the natural resources sector is one of its most consequential, yet young people are systematically excluded from decision-making in the sector. We design and deliver programmes that put African youth in leadership positions across research, advocacy, and oversight.",
@@ -23,8 +23,8 @@ export const thematicAreas = [
   {
     slug: 'corporate-accountability',
     path: '/thematic-areas/corporate-accountability',
-    diagram: '/assets/thematic/structural/corporate-accountability.svg',
-    heroImage: '/assets/hero/corporate-accountability-hero.jpg',
+    diagram: '/assets/thematic/structural/corporate-accountability.webp',
+    heroImage: '/assets/hero/corporate-accountability-hero.webp',
     title: 'Corporate Accountability in Natural Resource Governance',
     summary:
       "Africa holds roughly 30% of the world's mineral reserves, 12% of global oil reserves, and 8% of natural gas reserves, yet loses an estimated USD 195 billion a year in natural capital, much of it to weak corporate accountability and poor governance. We work with local and international partners to strengthen transparency, accountability, and good governance across the value chain.",
@@ -37,8 +37,8 @@ export const thematicAreas = [
   {
     slug: 'climate-energy-transition',
     path: '/thematic-areas/climate-energy-transition',
-    diagram: '/assets/thematic/structural/climate-energy-transition.svg',
-    heroImage: '/assets/hero/climate-energy-transition-hero.jpg',
+    diagram: '/assets/thematic/structural/climate-energy-transition.webp',
+    heroImage: '/assets/hero/climate-energy-transition-hero.webp',
     title: 'Climate Change and Energy Transition',
     summary:
       'Africa contributes least to global emissions but bears the heaviest costs of climate change. The extractive sector is also one of the largest emitters. We advise governments and industry on locally workable solutions that balance carbon reduction with sustainable resource use, and we lead a dedicated Energy Transition and Critical Minerals strategy.',
@@ -55,8 +55,8 @@ export const thematicAreas = [
   {
     slug: 'gender-equity-inclusion',
     path: '/thematic-areas/gender-equity-inclusion',
-    diagram: '/assets/thematic/structural/gender-equity-inclusion.svg',
-    heroImage: '/assets/hero/gender-equity-inclusion-hero.jpg',
+    diagram: '/assets/thematic/structural/gender-equity-inclusion.webp',
+    heroImage: '/assets/hero/gender-equity-inclusion-hero.webp',
     title: 'Gender, Equity and Social Inclusion in Natural Resource Governance',
     summary:
       'Women and marginalised groups remain locked out of leadership and technical roles across the sector. We partner with governments, women-led organisations, and extractive companies to embed gender mainstreaming and social inclusion into how the sector is governed.',

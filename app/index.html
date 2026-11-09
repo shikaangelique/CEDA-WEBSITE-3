@@ -2,9 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-copy.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon-copy.svg?v=2" />
+    <meta name="theme-color" content="#2f6651" />
+
+    <!-- Defaults for crawlers and link previews; React replaces these per page (see src/main.jsx). -->
+    <title data-static>CEDA – Centre for Extractives and Development Africa</title>
+    <meta data-static name="description" content="CEDA is a research and advocacy organisation working for better governance of Africa’s mineral and petroleum resources, so they deliver real improvements for the people who depend on them." />
+    <meta data-static property="og:title" content="CEDA – Centre for Extractives and Development Africa" />
+    <meta data-static property="og:description" content="Research and advocacy for better governance of Africa’s mineral and petroleum resources." />
+    <meta data-static property="og:image" content="https://www.cedaghana.org/og-image.jpg" />
+    <meta data-static property="og:url" content="https://www.cedaghana.org/" />
+    <meta data-static name="twitter:title" content="CEDA – Centre for Extractives and Development Africa" />
+    <meta data-static name="twitter:description" content="Research and advocacy for better governance of Africa’s mineral and petroleum resources." />
+    <meta data-static name="twitter:image" content="https://www.cedaghana.org/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CEDA" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ceda_ghana" />
+
+    <link rel="preconnect" href="https://ndlefvbivreuwyejvmtl.supabase.co" crossorigin />
+    <script>
+      // Start the homepage hero download before the JS bundle runs (homepage only).
+      if (location.pathname === '/') {
+        var l = document.createElement('link')
+        l.rel = 'preload'; l.as = 'image'; l.type = 'image/webp'
+        l.href = '/assets/hero/home-hero.webp'; l.setAttribute('fetchpriority', 'high')
+        document.head.appendChild(l)
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

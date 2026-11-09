@@ -16,7 +16,7 @@ export default function AboutPage() {
         eyebrow="About CEDA"
         title="Better governance of Africa's mineral and petroleum resources."
         subtitle={about.intro}
-        image="/assets/hero/about-hero.jpg"
+        image="/assets/hero/about-hero.webp"
       />
 
       <section className="border-b border-[var(--color-line)]">
@@ -36,7 +36,7 @@ export default function AboutPage() {
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader title="Broad objectives" number="01" />
+          <SectionHeader title="Broad objectives" />
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {about.broadObjectives.map((objective, index) => (
               <NumberedItem key={objective} number={String(index + 1).padStart(2, '0')} title={objective} />
@@ -46,7 +46,7 @@ export default function AboutPage() {
       </section>
 
       <FullFrameImage
-        src="/assets/images/mineral-specimen-crystalline.jpg"
+        src="/assets/images/mineral-specimen-crystalline.webp"
         alt="Crystalline mineral specimen"
         caption="Evidence, communities, and governance sit at the centre of CEDA's work."
       />
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <SectionHeader
             title="Operational areas"
             intro={about.operationalAreasIntro}
-            number="02"
+           
           />
           <div className="mt-14 grid gap-5 lg:grid-cols-5">
             {about.operationalAreas.map((area, index) => (
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
       <section>
         <Container className="py-[var(--section-y)]">
-          <SectionHeader title="Core values" intro={about.coreValuesIntro} number="03" />
+          <SectionHeader title="Core values" intro={about.coreValuesIntro} />
           <div className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3">
             {about.coreValues.map((value) => (
               <div key={value} className="bg-[var(--color-bg-card)] p-6 text-[var(--color-text)]">

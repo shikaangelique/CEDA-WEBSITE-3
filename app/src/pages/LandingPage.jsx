@@ -40,23 +40,21 @@ export default function LandingPage() {
         eyebrow="Centre for Extractives and Development Africa"
         title={landing.hero.headline}
         subtitle={landing.hero.subhead}
-        image="/assets/hero/home-hero.jpeg"
-        slides={landing.hero.slides}
+                slides={landing.hero.slides}
         primaryCTA={{ label: landing.hero.primaryCTA, href: '/resource-centre/publications' }}
-        secondaryCTA={{ label: landing.hero.secondaryCTA, href: '/contact' }}
         size="landing"
       />
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader number="01" title="What we do" />
+          <SectionHeader title="What we do" />
           <TextAppear className="body-lg mt-12 max-w-4xl">{landing.whatWeDo}</TextAppear>
         </Container>
       </section>
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader number="02" title="Who we serve" intro={landing.whoWeServe.intro} />
+          <SectionHeader title="Who we serve" intro={landing.whoWeServe.intro} />
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {landing.whoWeServe.items.map((item) => (
               <NumberedItem key={item.number} number={item.number} title={item.title}>
@@ -70,7 +68,7 @@ export default function LandingPage() {
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
-            number="03"
+           
             title="Thematic areas"
             intro={landing.thematicAreasIntro}
           />
@@ -91,7 +89,7 @@ export default function LandingPage() {
       <section className="border-b border-[var(--color-line)] bg-[rgba(228,236,225,0.58)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
-            number="04"
+           
             kicker="Assessment"
             title={assessmentContent.title}
             intro={assessmentContent.intro}
@@ -103,7 +101,7 @@ export default function LandingPage() {
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
-            number="05"
+           
             title="Featured work"
             intro={landing.featuredWork.intro}
           />
@@ -180,14 +178,14 @@ export default function LandingPage() {
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader number="06" title="Why us" intro={pppStrategy.subtitle} />
+          <SectionHeader title="Why us" intro={pppStrategy.subtitle} />
           <PPPStrategyBlock />
         </Container>
       </section>
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader number="07" title="Our partners" />
+          <SectionHeader title="Our partners" />
           <PartnerWall partners={partners} className="mt-14" />
           <p className="mt-4 text-sm text-[var(--color-text-faint)]">
             Hover over a logo to view it in full colour.
@@ -198,7 +196,7 @@ export default function LandingPage() {
       <section className="border-b border-[var(--color-line)] bg-[rgba(228,236,225,0.54)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
-            number="08"
+           
             title="News and insights"
             intro={landing.newsAndInsights.intro}
           />
@@ -236,7 +234,7 @@ export default function LandingPage() {
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
           <SectionHeader
-            number="09"
+           
             title="What leaders are saying"
           />
           <div className="mt-14">

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /review-ceda-site-2026
+
+Sitemap: https://www.cedaghana.org/sitemap.xml

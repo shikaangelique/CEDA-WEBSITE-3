@@ -5,6 +5,7 @@ import Container from '../components/ui/Container'
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import { getProjectSpotlight } from '../data/projectSpotlights'
+import Seo from '../components/seo/Seo'
 
 export default function ProjectSpotlightPage() {
   const { slug } = useParams()
@@ -16,6 +17,7 @@ export default function ProjectSpotlightPage() {
 
   return (
     <>
+      <Seo title={project.title} description={project.summary} path={`/news/project-spotlight/${project.slug}`} />
       <PageHero
         eyebrow="Project in spotlight"
         title={project.title}

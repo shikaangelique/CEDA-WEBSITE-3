@@ -6,6 +6,7 @@ import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import TextAppear from '../components/ui/TextAppear'
 import { thematicAreas } from '../data/thematicAreas'
+import Seo from '../components/seo/Seo'
 
 export default function ThematicAreaDetail() {
   const { slug } = useParams()
@@ -19,6 +20,7 @@ export default function ThematicAreaDetail() {
 
   return (
     <>
+      <Seo title={area.title} description={area.summary} path={`/thematic-areas/${area.slug}`} />
       <PageHero
         eyebrow="Thematic area"
         title={area.title}

@@ -11,7 +11,7 @@ export const pppStrategy = {
         'Awareness creation on extractives governance, energy transition, and anti-corruption',
         'Civic engagement at the community level to strengthen local voice and participation',
       ],
-      image: '/assets/ppp-structural-diagrams/people-pillar.png',
+      image: '/assets/ppp-structural-diagrams/people-pillar.webp',
     },
     {
       title: 'Policy',
@@ -21,7 +21,7 @@ export const pppStrategy = {
         'National-level engagement with government bodies and regulatory institutions',
         'Strategic partnerships with CSOs, development partners, and accountability mechanisms (EITI/GHEITI, PIAC, etc.)',
       ],
-      image: '/assets/ppp-structural-diagrams/policy-pillar.png',
+      image: '/assets/ppp-structural-diagrams/policy-pillar.webp',
     },
     {
       title: 'Process',
@@ -31,7 +31,7 @@ export const pppStrategy = {
         'Technology partnerships (including collaboration with SYND) for data infrastructure',
         "Knowledge products and digital channels that amplify CEDA's reach and impact",
       ],
-      image: '/assets/ppp-structural-diagrams/process-pillar.png',
+      image: '/assets/ppp-structural-diagrams/process-pillar.webp',
     },
   ],
   spotlight:

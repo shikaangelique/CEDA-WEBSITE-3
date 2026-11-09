@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { excludeAnnualReportTypes } from '../lib/publicationTypes'
 
 export function useFeaturedPublications(limit = 4) {
   const [featured, setFeatured] = useState([])
@@ -13,9 +14,9 @@ export function useFeaturedPublications(limit = 4) {
       setLoading(true)
       setError(null)
 
-      const { data, error: fetchError } = await supabase
-        .from('publications')
-        .select('*')
+      const { data, error: fetchError } = await excludeAnnualReportTypes(
+        supabase.from('publications').select('*'),
+      )
         .eq('featured', true)
         .order('published_at', { ascending: false, nullsFirst: false })
         .order('year', { ascending: false, nullsFirst: false })

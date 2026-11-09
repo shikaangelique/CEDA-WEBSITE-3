@@ -7,22 +7,22 @@ export const partnerWallContent = {
 }
 
 export const partners = [
-  { name: 'ACEP', logo: '/assets/partners/acep.png', featuredScale: true },
-  { name: 'CECI', logo: '/assets/partners/ceci.png', pending: 'Flagged for confirmation.' },
-  { name: 'GHEITI', logo: '/assets/partners/gheiti.png', compact: true },
-  { name: 'GIZ', logo: '/assets/partners/giz.png' },
-  { name: 'Gower Street', logo: '/assets/partners/gower-street.jpeg' },
-  { name: 'NRGI', logo: '/assets/partners/nrgi.png' },
+  { name: 'ACEP', logo: '/assets/partners/acep.webp', featuredScale: true },
+  { name: 'CECI', logo: '/assets/partners/ceci.webp', pending: 'Flagged for confirmation.' },
+  { name: 'GHEITI', logo: '/assets/partners/gheiti.webp', compact: true },
+  { name: 'GIZ', logo: '/assets/partners/giz.webp' },
+  { name: 'Gower Street', logo: '/assets/partners/gower-street.webp' },
+  { name: 'NRGI', logo: '/assets/partners/nrgi.webp' },
   {
     name: 'SFG',
     logo: '/assets/partners/star-foundation-ghana.webp',
     pending: 'Flagged for confirmation.',
   },
-  { name: 'SYND', logo: '/assets/partners/synd.png' },
-  { name: 'Women in Mining (WiM)', logo: '/assets/partners/wim.jpg' },
-  { name: 'WUSC', logo: '/assets/partners/wusc-eumc.jpg' },
-  { name: 'CCG', logo: '/assets/partners/ccg.png', pending: 'Flagged for confirmation.' },
-  { name: 'UK Ghana Gold Programme', logo: '/assets/partners/ukggp.png' },
+  { name: 'SYND', logo: '/assets/partners/synd.webp' },
+  { name: 'Women in Mining (WiM)', logo: '/assets/partners/wim.webp' },
+  { name: 'WUSC', logo: '/assets/partners/wusc-eumc.webp' },
+  { name: 'CCG', logo: '/assets/partners/ccg.webp', pending: 'Flagged for confirmation.' },
+  { name: 'UK Ghana Gold Programme', logo: '/assets/partners/ukggp.webp' },
 ]
 
 export const strategicPartnersToConfirm = [

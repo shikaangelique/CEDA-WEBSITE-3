@@ -8,18 +8,18 @@ export const siteContent = {
       secondaryCTA: 'Get in touch',
       slides: [
         {
-          image: '/assets/hero/home-hero.jpeg',
+          image: '/assets/hero/home-hero.webp',
           title: "Better governance of Africa's mineral wealth, for the people who depend on it.",
           subhead:
             "The Centre for Extractives and Development Africa is a research and advocacy organisation working across the continent to make sure natural resources translate into real improvements in national life.",
         },
         {
-          image: '/assets/hero/scroll-image-replacement-2.jpg',
+          image: '/assets/hero/scroll-image-replacement-2.webp',
           subhead:
             'We support communities and civic actors so the people closest to extraction have a real seat at the table.',
         },
         {
-          image: '/assets/hero/scroll-image-replacement-3.png',
+          image: '/assets/hero/scroll-image-replacement-3.webp',
           subhead:
             'We help shape policy, evidence, and public accountability for a just energy transition.',
         },
@@ -64,12 +64,12 @@ export const siteContent = {
         {
           title: "D1: Comprehensive Review and Gap Analysis of Ghana's Transition to E2&3Ws",
           year: '2026',
-          thumbnail: '/assets/publication-thumbnails/ccd-d1.png',
+          thumbnail: '/assets/publication-thumbnails/ccd-d1.webp',
         },
         {
           title: 'Inception Report: Exploring the Transition Pathways to E2&3Ws in Ghana',
           year: '2026',
-          thumbnail: '/assets/publication-thumbnails/ccg-pr1.png',
+          thumbnail: '/assets/publication-thumbnails/ccg-pr1.webp',
         },
         {
           title: 'Impact Assessment of ABFA Utilisation by Development Authorities',
@@ -239,11 +239,11 @@ export const siteContent = {
       },
       {
         label: 'X',
-        url: 'https://x.com/ceda_ghana?s=21',
+        url: 'https://x.com/ceda_ghana',
       },
       {
         label: 'LinkedIn',
-        url: 'http://linkedin.com/company/centre-for-extractives-development-africa-ceda/posts/?feedView=all%20',
+        url: 'https://www.linkedin.com/company/centre-for-extractives-development-africa-ceda/',
       },
     ],
   },
@@ -260,11 +260,11 @@ export const siteContent = {
       },
       {
         label: 'X',
-        url: 'https://x.com/ceda_ghana?s=21',
+        url: 'https://x.com/ceda_ghana',
       },
       {
         label: 'LinkedIn',
-        url: 'http://linkedin.com/company/centre-for-extractives-development-africa-ceda/posts/?feedView=all%20',
+        url: 'https://www.linkedin.com/company/centre-for-extractives-development-africa-ceda/',
       },
     ],
   },

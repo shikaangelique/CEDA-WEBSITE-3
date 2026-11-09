@@ -12,7 +12,7 @@ export default function ThematicAreasPage() {
         eyebrow="Thematic areas"
         title="Four areas anchor our work."
         subtitle={thematicAreasOverview.intro}
-        image="/assets/hero/thematic-areas-hero.png"
+        image="/assets/hero/thematic-areas-hero.webp"
       />
 
       <section className="border-b border-[var(--color-line)]">
@@ -33,7 +33,7 @@ export default function ThematicAreasPage() {
       </section>
 
       <FullFrameImage
-        src="/assets/images/solar-array-savanna-landscape.jpg"
+        src="/assets/images/solar-array-savanna-landscape.webp"
         alt="Solar array in a savanna landscape"
         caption="Cross-cutting concerns of gender, youth, transparency, and anti-corruption run through all four."
       />

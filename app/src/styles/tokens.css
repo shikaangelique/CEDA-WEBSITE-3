@@ -12,8 +12,8 @@
   /* Text */
   --color-text: #183126;
   --color-text-muted: #3f5a4d;
-  --color-text-faint: #6a7d71;
-  --color-text-dim: #8d9b92;
+  --color-text-faint: #556659;
+  --color-text-dim: #5f6f64;
 
   /* Accents */
   --color-accent: #2f6651;
@@ -22,7 +22,8 @@
   --color-accent-contrast: #f6f7f1;
   --color-secondary: #9e9964;
   --color-secondary-bright: #b0aa75;
-  --color-rose: #a86e5f;
+  --color-secondary-text: #6b6738;
+  --color-rose: #8f5444;
 
   /* Typography */
   --font-serif: "Fraunces", Georgia, serif;

@@ -3,9 +3,10 @@ import PublicationGrid from '../components/publications/PublicationGrid'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import Container from '../components/ui/Container'
-import PageHero from '../components/ui/PageHero'
+import Eyebrow from '../components/ui/Eyebrow'
 import SectionHeader from '../components/ui/SectionHeader'
 import { usePublicationById } from '../hooks/usePublicationById'
+import Seo from '../components/seo/Seo'
 
 function normalizeList(value) {
   if (!value) return []
@@ -56,20 +57,32 @@ export default function PublicationDetailPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow={publication.type || 'Publication'}
+      <Seo
         title={publication.title}
-        subtitle={publication.abstract}
-        image={publication.thumbnail_url || '/assets/hero/publications-hero.jpg'}
-        primaryCTA={
-          publication.file_url
-            ? {
-                label: 'Download',
-                href: publication.file_url,
-              }
-            : null
-        }
+        description={publication.abstract}
+        path={`/resource-centre/publications/${publication.slug || publication.id}`}
+        image={publication.thumbnail_url}
       />
+      <section className="relative h-[58vh] min-h-[22rem] overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-bg-card)]">
+        <img
+          src={publication.thumbnail_url || '/assets/hero/publications-hero.webp'}
+          alt={`Cover of ${publication.title}`}
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+        />
+      </section>
+
+      <section className="border-b border-[var(--color-line)]">
+        <Container className="py-12 md:py-16">
+          <Eyebrow withLine>{publication.type || 'Publication'}</Eyebrow>
+          <h1 className="heading-xl mt-6 max-w-4xl text-[var(--color-text)]">{publication.title}</h1>
+          {publication.file_url ? (
+            <Button className="mt-8" href={publication.file_url}>
+              Download
+            </Button>
+          ) : null}
+        </Container>
+      </section>
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="grid gap-10 py-[var(--section-y)] lg:grid-cols-[0.75fr_1.25fr]">

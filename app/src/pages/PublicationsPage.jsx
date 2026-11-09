@@ -64,7 +64,7 @@ export default function PublicationsPage() {
         eyebrow="Resource Centre"
         title="Publications"
         subtitle={siteContent.resourceCentre.overview}
-        image="/assets/hero/publications-hero.jpg"
+        image="/assets/hero/publications-hero.webp"
       />
 
       <section>

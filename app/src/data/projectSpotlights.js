@@ -4,8 +4,8 @@ export const projectSpotlights = [
     partner: 'Africa Centre for Energy Policy',
     shortName: 'ACEP',
     status: 'Ongoing partnership',
-    logo: '/assets/project-spotlights/acep/acep-logo.png',
-    heroImage: '/assets/project-spotlights/acep/bosomoiso-kindergarten-block.png',
+    logo: '/assets/project-spotlights/acep/acep-logo.webp',
+    heroImage: '/assets/project-spotlights/acep/bosomoiso-kindergarten-block.webp',
     title: "Strengthening mineral revenue governance in Ghana's mining districts",
     summary:
       'Using contribution analysis, outcome mapping, project performance reviews, and community feedback, the assessment examined how MDF allocations influenced infrastructure development, service delivery, and local well-being.',
@@ -43,31 +43,31 @@ export const projectSpotlights = [
       'Using contribution analysis, outcome mapping, project performance reviews, and community feedback, the assessment examined how MDF allocations influenced infrastructure development, service delivery, and local well-being.',
     gallery: [
       {
-        src: '/assets/project-spotlights/acep/bosomoiso-kindergarten-block.png',
+        src: '/assets/project-spotlights/acep/bosomoiso-kindergarten-block.webp',
         title: 'Bosomoiso Kindergarten Block',
         description:
           'The dedicated KG block marked a shift toward stronger early-childhood learning, replacing an unsafe building affected by leaking roofs, insect infestations, and poor ventilation.',
       },
       {
-        src: '/assets/project-spotlights/acep/new-abirem-lockable-stores.jpg',
+        src: '/assets/project-spotlights/acep/new-abirem-lockable-stores.webp',
         title: 'New Abirem lockable stores',
         description:
           'The lockable stores formalized trading space, protected goods from weather and security risks, improved inventory management, and helped traders operate with greater continuity and efficiency.',
       },
       {
-        src: '/assets/project-spotlights/acep/prestea-government-hospital.jpg',
+        src: '/assets/project-spotlights/acep/prestea-government-hospital.webp',
         title: 'Prestea Government Hospital',
         description:
           'Initiated after 2018 community consultations, the hospital investment responded to demand for specialized services, including ENT care, across more than 40 communities and about 40,000 residents.',
       },
       {
-        src: '/assets/project-spotlights/acep/sefwi-wiawso-borehole-rehab.jpg',
+        src: '/assets/project-spotlights/acep/sefwi-wiawso-borehole-rehab.webp',
         title: 'Sefwi Wiawso borehole rehabilitation',
         description:
           'Six dysfunctional boreholes serving about 1,000 people were restored, reducing reliance on a contaminated stream and improving hygiene, public health, and water access during the COVID-19 period.',
       },
       {
-        src: '/assets/project-spotlights/acep/prestea-ict-centre.jpg',
+        src: '/assets/project-spotlights/acep/prestea-ict-centre.webp',
         title: 'Prestea Information and Communication Centre',
         description:
           'The two-storey digital learning hub now serves thousands of students, supports 22 basic schools and two secondary schools, and trains over 1,300 educators annually in modern digital skills.',
@@ -100,8 +100,8 @@ export const projectSpotlights = [
     partner: 'Climate Compatible Growth Programme',
     shortName: 'CCG',
     status: 'Ongoing project',
-    logo: '/assets/project-spotlights/ccg/ccg-logo.jpg',
-    heroImage: '/assets/project-spotlights/ccg/skills-assessment-workshop-1.jpg',
+    logo: '/assets/project-spotlights/ccg/ccg-logo.webp',
+    heroImage: '/assets/project-spotlights/ccg/skills-assessment-workshop-1.webp',
     title: "Exploring Ghana's transition pathways to electric two- and three-wheelers",
     summary:
       'With CCG support, CEDA is generating the evidence Ghana needs to include electric motorcycles, tricycles, and last-mile mobility in a just transport transition.',
@@ -141,25 +141,25 @@ export const projectSpotlights = [
       'Selected moments from CEDA’s CCG-funded work with riders, regulators, manufacturers, educators, and policy stakeholders across Ghana’s e-mobility ecosystem.',
     gallery: [
       {
-        src: '/assets/project-spotlights/ccg/skills-assessment-workshop-1.jpg',
+        src: '/assets/project-spotlights/ccg/skills-assessment-workshop-1.webp',
         title: "Skills Assessment Workshops to map Ghana's e-mobility workforce readiness",
         description:
           'In February and March 2026, regional workshops in Accra and Kumasi brought together EV assemblers, retrofitters, ride-hailing operators, industry bodies, TVET institutions, and professors from Kumasi Technical University to map the skills Ghana needs for local E2&3W production.',
       },
       {
-        src: '/assets/project-spotlights/ccg/skills-assessment-workshop-2.jpg',
+        src: '/assets/project-spotlights/ccg/skills-assessment-workshop-2.webp',
         title: 'Collaborative stakeholder engagement',
         description:
           'The project brought okada riders, Solar Taxi, Wahu Mobility, Ghana TVET Services, the Land Use and Spatial Planning Authority, academic institutions, and private-sector actors into shared working sessions on skills, regulation, infrastructure, and implementation realities.',
       },
       {
-        src: '/assets/project-spotlights/ccg/d1-validation-session.jpg',
+        src: '/assets/project-spotlights/ccg/d1-validation-session.webp',
         title: 'CEDA at FEC 2025',
         description:
           'On 26-27 August 2025 in Accra, the project hosted a validation session at the Future of Energy Conference to test D1 findings on Ghana’s legal, institutional, and policy landscape for E2&3Ws. Stakeholders rotated through four immersive insight stations, providing structured feedback through rating cards and written comments.',
       },
       {
-        src: '/assets/project-spotlights/ccg/validation-engagement.jpg',
+        src: '/assets/project-spotlights/ccg/validation-engagement.webp',
         title: 'Rigorous stakeholder validation across deliverables',
         description:
           'D1-D4 have been validated through direct working sessions with sector participants, high-level roundtables, group stakeholder validation engagements, and Gender Advisory Committee review, ensuring outputs are refined by the actors expected to use them.',

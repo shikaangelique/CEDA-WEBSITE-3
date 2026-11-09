@@ -34,6 +34,12 @@ export default function PageHero({
     return () => window.clearInterval(timer)
   }, [heroSlides.length])
 
+  const nextImage = heroSlides.length > 1 ? heroSlides[(activeSlide + 1) % heroSlides.length]?.image : null
+
+  useEffect(() => {
+    if (nextImage) new Image().src = nextImage
+  }, [nextImage])
+
   return (
     <section
       className={clsx(
@@ -48,6 +54,8 @@ export default function PageHero({
             key={currentSlide.image}
             src={currentSlide.image}
             alt=""
+            fetchPriority={activeSlide === 0 ? 'high' : 'auto'}
+            decoding="async"
             className="absolute inset-0 -z-20 h-full w-full object-cover opacity-82"
             initial={{ opacity: 0, x: '9%', scale: 1.04 }}
             animate={{ opacity: 0.82, x: '0%', scale: 1 }}
@@ -76,8 +84,8 @@ export default function PageHero({
                 key={`hero-title-${currentTitle}`}
                 as="h1"
                 className={clsx(
-                  'mt-8 text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.28)]',
-                  isLanding ? 'display-lg' : 'heading-xl max-w-4xl',
+                  'mt-8 text-white',
+                  isLanding ? 'display-lg [text-shadow:none]' : 'heading-xl max-w-4xl [text-shadow:0_2px_18px_rgba(0,0,0,0.28)]',
                 )}
               >
                 {currentTitle}
@@ -117,15 +125,20 @@ export default function PageHero({
                 <button
                   key={slide.image}
                   type="button"
-                  className={[
-                    'h-2.5 rounded-full transition',
-                    index === activeSlide
-                      ? 'w-10 bg-[var(--color-accent)]'
-                      : 'w-2.5 bg-[rgba(24,49,38,0.18)] hover:bg-[rgba(24,49,38,0.34)]',
-                  ].join(' ')}
+                  className="group flex h-6 min-w-6 items-center justify-center"
                   aria-label={`Show hero slide ${index + 1}`}
+                  aria-current={index === activeSlide ? 'true' : undefined}
                   onClick={() => setActiveSlide(index)}
-                />
+                >
+                  <span
+                    className={[
+                      'block h-2.5 rounded-full transition',
+                      index === activeSlide
+                        ? 'w-10 bg-[var(--color-accent)]'
+                        : 'w-2.5 bg-[rgba(24,49,38,0.18)] group-hover:bg-[rgba(24,49,38,0.34)]',
+                    ].join(' ')}
+                  />
+                </button>
               ))}
             </div>
           ) : null}

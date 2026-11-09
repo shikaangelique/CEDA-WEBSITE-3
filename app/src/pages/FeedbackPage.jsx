@@ -4,6 +4,7 @@ import Card from '../components/ui/Card'
 import Container from '../components/ui/Container'
 import PageHero from '../components/ui/PageHero'
 import { useSubmitFeedback } from '../hooks/useSubmitFeedback'
+import { useSpamGuard } from '../hooks/useSpamGuard'
 
 const ratingFields = [
   { key: 'load_time_rating', label: 'Load time' },
@@ -79,6 +80,7 @@ export default function FeedbackPage() {
   const [form, setForm] = useState(initialForm)
   const [validationError, setValidationError] = useState('')
   const { submit, status, error } = useSubmitFeedback()
+  const { check, honeypotField } = useSpamGuard()
 
   const completedDetailRatingCount = useMemo(
     () => ratingFields.filter((field) => form[field.key]).length,
@@ -112,6 +114,13 @@ export default function FeedbackPage() {
 
     if (!hasWrittenFeedback && completedDetailRatingCount < 3) {
       setValidationError('Please complete at least three ratings or add one written comment.')
+      return
+    }
+
+    const guard = check()
+    if (!guard.ok) {
+      setValidationError(guard.silent ? '' : guard.message)
+      if (guard.silent) setForm(initialForm)
       return
     }
 
@@ -150,7 +159,8 @@ export default function FeedbackPage() {
       <section>
         <Container className="py-[var(--section-y)]">
           <Card>
-            <form onSubmit={handleSubmit}>
+            <form className="relative" onSubmit={handleSubmit}>
+              {honeypotField}
               <div className="grid gap-5 md:grid-cols-2">
                 <label className="grid gap-2">
                   <span className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-text-faint)]">
@@ -158,6 +168,7 @@ export default function FeedbackPage() {
                   </span>
                   <input
                     name="name"
+                    maxLength={120}
                     value={form.name}
                     onChange={updateField}
                     className="min-h-12 rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[var(--color-bg-soft)] px-4 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-accent)]"
@@ -170,6 +181,7 @@ export default function FeedbackPage() {
                   </span>
                   <input
                     name="role"
+                    maxLength={120}
                     value={form.role}
                     onChange={updateField}
                     className="min-h-12 rounded-[var(--radius-sm)] border border-[var(--color-line)] bg-[var(--color-bg-soft)] px-4 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-accent)]"
@@ -216,6 +228,7 @@ export default function FeedbackPage() {
                       {label}
                     </span>
                     <textarea
+                      maxLength={3000}
                       name={name}
                       value={form[name]}
                       onChange={updateField}

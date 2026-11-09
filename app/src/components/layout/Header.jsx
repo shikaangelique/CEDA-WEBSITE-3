@@ -99,7 +99,7 @@ export default function Header() {
         >
           <span className="inline-flex w-fit">
             <img
-              src="/assets/logos/ceda-logo-no-text-white-green.png"
+              src="/assets/logos/ceda-logo-no-text-white-green.webp"
               alt="CEDA"
               className="h-8 w-auto object-contain"
             />

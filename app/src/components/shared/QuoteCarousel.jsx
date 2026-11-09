@@ -30,15 +30,20 @@ export default function QuoteCarousel() {
               <button
                 key={`${quote.author}-${quote.quote}`}
                 type="button"
-                className={[
-                  'h-2 rounded-full transition',
-                  index === activeIndex
-                    ? 'w-6 bg-[var(--color-accent)]'
-                    : 'w-2 bg-[rgba(47,102,81,0.18)] hover:bg-[rgba(47,102,81,0.32)]',
-                ].join(' ')}
+                className="group flex h-6 min-w-6 items-center justify-center"
                 aria-label={`Show quote ${index + 1}`}
+                aria-current={index === activeIndex ? 'true' : undefined}
                 onClick={() => setActiveIndex(index)}
-              />
+              >
+                <span
+                  className={[
+                    'block h-2 rounded-full transition',
+                    index === activeIndex
+                      ? 'w-6 bg-[var(--color-accent)]'
+                      : 'w-2 bg-[rgba(47,102,81,0.18)] group-hover:bg-[rgba(47,102,81,0.32)]',
+                  ].join(' ')}
+                />
+              </button>
             ))}
           </div>
         </div>

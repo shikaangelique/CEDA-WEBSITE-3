@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { excludeAnnualReportTypes } from '../lib/publicationTypes'
 
 function isUuid(value) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
@@ -51,9 +52,7 @@ export function usePublicationById(idOrSlug) {
         return
       }
 
-      let relatedQuery = supabase
-        .from('publications')
-        .select('*')
+      let relatedQuery = excludeAnnualReportTypes(supabase.from('publications').select('*'))
         .neq('id', data.id)
         .order('published_at', { ascending: false, nullsFirst: false })
         .order('year', { ascending: false, nullsFirst: false })

@@ -24,7 +24,8 @@ export default function Button({
   )
 
   if (href) {
-    if (href.startsWith('/')) {
+    // In-site pages use the router; files served from /assets (PDFs, images) need a real link.
+    if (href.startsWith('/') && !/\.[a-z0-9]{2,5}$/i.test(href)) {
       return <Link className={classes} to={href} {...props} />
     }
 

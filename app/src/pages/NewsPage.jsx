@@ -17,7 +17,7 @@ export default function NewsPage() {
         eyebrow="News and Media"
         title="News, blog posts, event coverage, and updates."
         subtitle={siteContent.news.intro}
-        image="/assets/hero/news-hero.jpg"
+        image="/assets/hero/news-hero.webp"
       />
 
       <section>

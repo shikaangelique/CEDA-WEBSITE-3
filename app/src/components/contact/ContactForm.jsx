@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useContactSubmit } from '../../hooks/useContactSubmit'
+import { useSpamGuard } from '../../hooks/useSpamGuard'
 import Button from '../ui/Button'
 import Card from '../ui/Card'
 
@@ -15,6 +16,8 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
+const LIMITS = { name: 120, email: 254, phone: 30, organisation: 160, message: 5000 }
+
 function Field({ label, error, children }) {
   return (
     <label className="grid gap-2">
@@ -22,7 +25,7 @@ function Field({ label, error, children }) {
         {label}
       </span>
       {children}
-      {error ? <span className="text-sm text-[var(--color-rose)]">{error}</span> : null}
+      {error ? <span role="alert" className="text-sm text-[var(--color-rose)]">{error}</span> : null}
     </label>
   )
 }
@@ -33,7 +36,9 @@ const inputClass =
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
-  const { submit, reset, status, error } = useContactSubmit()
+  const { submit, reset, status } = useContactSubmit()
+  const { check, honeypotField } = useSpamGuard()
+  const [guardMessage, setGuardMessage] = useState(null)
 
   function updateField(field, value) {
     setForm((current) => ({ ...current, [field]: value }))
@@ -50,7 +55,14 @@ export default function ContactForm() {
     } else if (!isValidEmail(form.email)) {
       nextErrors.email = 'Enter a valid email address.'
     }
-    if (!form.message.trim()) nextErrors.message = 'Your message is required.'
+    if (form.phone.trim() && !/^\+?[0-9 ()-]{7,20}$/.test(form.phone.trim())) {
+      nextErrors.phone = 'Enter a valid phone number, digits only (a leading + is fine).'
+    }
+    if (!form.message.trim()) {
+      nextErrors.message = 'Your message is required.'
+    } else if (form.message.trim().length < 10) {
+      nextErrors.message = 'Please write a little more so we can help (at least 10 characters).'
+    }
 
     setErrors(nextErrors)
     return Object.keys(nextErrors).length === 0
@@ -60,6 +72,15 @@ export default function ContactForm() {
     event.preventDefault()
 
     if (!validate()) return
+
+    setGuardMessage(null)
+    const guard = check()
+    if (!guard.ok) {
+      // Bots get a fake success; people who submit twice get a gentle note.
+      if (guard.silent) setForm(initialForm)
+      else setGuardMessage(guard.message)
+      return
+    }
 
     const result = await submit({
       ...form,
@@ -77,12 +98,15 @@ export default function ContactForm() {
 
   return (
     <Card>
-      <form className="grid gap-5" onSubmit={handleSubmit} noValidate>
+      <form className="relative grid gap-5" onSubmit={handleSubmit} noValidate>
+        {honeypotField}
         <div className="grid gap-5 md:grid-cols-2">
           <Field label="Your name" error={errors.name}>
             <input
               className={inputClass}
               value={form.name}
+              maxLength={LIMITS.name}
+              aria-invalid={Boolean(errors.name)}
               onChange={(event) => updateField('name', event.target.value)}
               autoComplete="name"
               required
@@ -93,6 +117,8 @@ export default function ContactForm() {
               className={inputClass}
               type="email"
               value={form.email}
+              maxLength={LIMITS.email}
+              aria-invalid={Boolean(errors.email)}
               onChange={(event) => updateField('email', event.target.value)}
               autoComplete="email"
               required
@@ -101,10 +127,12 @@ export default function ContactForm() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          <Field label="Phone number (optional)">
+          <Field label="Phone number (optional)" error={errors.phone}>
             <input
               className={inputClass}
               value={form.phone}
+              maxLength={LIMITS.phone}
+              aria-invalid={Boolean(errors.phone)}
               onChange={(event) => updateField('phone', event.target.value)}
               autoComplete="tel"
             />
@@ -113,6 +141,8 @@ export default function ContactForm() {
             <input
               className={inputClass}
               value={form.organisation}
+              maxLength={LIMITS.organisation}
+              aria-invalid={Boolean(errors.organisation)}
               onChange={(event) => updateField('organisation', event.target.value)}
               autoComplete="organization"
             />
@@ -123,6 +153,8 @@ export default function ContactForm() {
           <textarea
             className={`${inputClass} min-h-40 resize-y py-3`}
             value={form.message}
+            maxLength={LIMITS.message}
+            aria-invalid={Boolean(errors.message)}
             onChange={(event) => updateField('message', event.target.value)}
             required
           />
@@ -133,11 +165,12 @@ export default function ContactForm() {
             {status === 'sending' ? 'Sending' : 'Submit'}
           </Button>
           {status === 'success' ? (
-            <p className="text-sm text-[var(--color-accent-bright)]">Thank you. Your message has been sent.</p>
+            <p className="text-sm text-[var(--color-accent)]">Thank you. Your message has been sent.</p>
           ) : null}
+          {guardMessage ? <p className="text-sm text-[var(--color-rose)]">{guardMessage}</p> : null}
           {status === 'error' ? (
             <p className="text-sm text-[var(--color-rose)]">
-              {error?.message || 'Something went wrong. Please try again.'}
+              Something went wrong and your message was not sent. Please try again, or email us directly.
             </p>
           ) : null}
         </div>

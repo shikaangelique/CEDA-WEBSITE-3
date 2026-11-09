@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { excludeAnnualReportTypes } from '../lib/publicationTypes'
 
 function normalize(value) {
   return String(value || '').toLowerCase().trim()
@@ -62,7 +63,7 @@ export function usePublications(filters = {}) {
       }
       setError(null)
 
-      let query = supabase.from('publications').select('*')
+      let query = excludeAnnualReportTypes(supabase.from('publications').select('*'))
 
       if (stableFilters.theme) query = query.eq('theme', stableFilters.theme)
       if (stableFilters.type) query = query.eq('type', stableFilters.type)

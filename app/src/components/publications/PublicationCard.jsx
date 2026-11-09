@@ -43,7 +43,7 @@ export default function PublicationCard({ publication }) {
           </h3>
 
           {publication.theme ? (
-            <p className="mt-4 text-sm text-[var(--color-secondary)]">{publication.theme}</p>
+            <p className="mt-4 text-sm text-[var(--color-secondary-text)]">{publication.theme}</p>
           ) : null}
 
           {publication.abstract ? (

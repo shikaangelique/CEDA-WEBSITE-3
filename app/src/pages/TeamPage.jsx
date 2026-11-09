@@ -101,12 +101,12 @@ export default function TeamPage() {
             <span className="invisible block">&nbsp;</span>
           </>
         }
-        image="/assets/hero/team-hero-group.jpg"
+        image="/assets/hero/team-hero-group.webp"
       />
 
       <section className="border-b border-[var(--color-line)]">
         <Container className="py-[var(--section-y)]">
-          <SectionHeader title="Governing Board" intro={boardContent.intro} number="01" />
+          <SectionHeader title="Governing Board" intro={boardContent.intro} />
           <div className="mt-14">
             <BoardAnnouncement />
           </div>
@@ -120,7 +120,7 @@ export default function TeamPage() {
 
       <section>
         <Container className="py-[var(--section-y)]">
-          <SectionHeader title="The Team" number="02" />
+          <SectionHeader title="The Team" />
           <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {team.map((member) => (
               <TeamMemberCard key={member.name} member={member} />
@@ -130,7 +130,7 @@ export default function TeamPage() {
       </section>
 
       <FullFrameImage
-        src="/assets/team/team-group-2.jpg"
+        src="/assets/team/team-group-2.webp"
         alt="CEDA team group photograph"
         caption="CEDA's work is carried by a multidisciplinary team working across extractives governance, energy transition, accountability, and inclusion."
       />

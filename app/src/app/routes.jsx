@@ -17,6 +17,9 @@ const StrategyPage = lazy(() => import('../pages/StrategyPage'))
 const TeamPage = lazy(() => import('../pages/TeamPage'))
 const ThematicAreaDetail = lazy(() => import('../pages/ThematicAreaDetail'))
 const ThematicAreasPage = lazy(() => import('../pages/ThematicAreasPage'))
+const PrivacyPage = lazy(() => import('../pages/PrivacyPage'))
+const TermsPage = lazy(() => import('../pages/TermsPage'))
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'))
 
 function RouteFallback() {
   return (
@@ -61,6 +64,9 @@ export const routes = [
       { path: 'news/:slug', element: lazyElement(NewsDetailPage) },
       { path: 'contact', element: lazyElement(ContactPage) },
       { path: 'review-ceda-site-2026', element: lazyElement(FeedbackPage) },
+      { path: 'privacy', element: lazyElement(PrivacyPage) },
+      { path: 'terms', element: lazyElement(TermsPage) },
+      { path: '*', element: lazyElement(NotFoundPage) },
     ],
   },
 ]

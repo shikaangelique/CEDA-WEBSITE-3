@@ -12,7 +12,7 @@ function DiagramNode({ pillar, index }) {
   return (
     <motion.img
       src={pillar.image}
-      alt=""
+      alt={`${pillar.title} pillar diagram`}
       className="absolute left-1/2 top-1/2 z-10 w-[25%] max-w-44 -translate-x-1/2 -translate-y-1/2 object-contain"
       loading="lazy"
       animate={{
@@ -111,6 +111,7 @@ export default function PPPStrategyBlock() {
               src={videoSrc}
               title={pppStrategy.video.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
               allowFullScreen
             />
           </div>

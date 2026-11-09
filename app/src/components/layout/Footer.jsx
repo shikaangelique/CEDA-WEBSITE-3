@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { siteContent } from '../../data/siteContent'
 import Container from '../ui/Container'
 
@@ -19,7 +19,7 @@ export default function Footer() {
       <Container className="grid gap-12 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:py-16">
         <div>
           <img
-            src="/assets/logos/ceda-logo-no-text-white-green.png"
+            src="/assets/logos/ceda-logo-no-text-white-green.webp"
             alt={footer.organisation}
             className="h-14 w-auto"
           />
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent-bright)]">Quick links</h2>
+          <h2 className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-[#6bb578]">Quick links</h2>
           <nav className="grid gap-3 text-sm text-[rgba(246,247,241,0.7)]">
             {footer.quickLinks.map((label) => (
               <NavLink
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-accent-bright)]">Social</h2>
+          <h2 className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-[#6bb578]">Social</h2>
           <div className="flex flex-wrap gap-3 text-sm text-[rgba(246,247,241,0.7)]">
             {footer.social.map((item) => (
               <a
@@ -65,6 +65,17 @@ export default function Footer() {
               </a>
             ))}
           </div>
+        </div>
+      </Container>
+      <Container className="flex flex-col gap-3 border-t border-[rgba(246,247,241,0.08)] py-6 text-xs text-[rgba(246,247,241,0.7)] md:flex-row md:items-center md:justify-between">
+        <p>© {new Date().getFullYear()} Centre for Extractives and Development Africa</p>
+        <div className="flex flex-wrap gap-5">
+          <Link to="/privacy" className="transition hover:text-white">
+            Privacy policy
+          </Link>
+          <Link to="/terms" className="transition hover:text-white">
+            Terms of use
+          </Link>
         </div>
       </Container>
     </footer>

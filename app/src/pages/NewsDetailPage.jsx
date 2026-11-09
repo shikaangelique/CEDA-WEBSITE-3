@@ -5,6 +5,7 @@ import Container from '../components/ui/Container'
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import { useNewsBySlug } from '../hooks/useNewsBySlug'
+import Seo from '../components/seo/Seo'
 
 function getPostBody(post) {
   const body = post.body || post.content || post.article || ''
@@ -56,11 +57,12 @@ export default function NewsDetailPage() {
 
   return (
     <>
+      <Seo title={post.title} description={post.excerpt} path={`/news/${post.slug}`} image={post.cover_image_url} />
       <PageHero
         eyebrow={date || 'News'}
         title={post.title}
         subtitle={post.excerpt}
-        image={post.cover_image_url || '/assets/hero/news-hero.jpg'}
+        image={post.cover_image_url || '/assets/hero/news-hero.webp'}
       />
 
       <section>
