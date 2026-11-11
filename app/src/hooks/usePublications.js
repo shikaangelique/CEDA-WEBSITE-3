@@ -26,7 +26,7 @@ function matchesSearch(publication, search) {
 }
 
 function escapeSearchTerm(value) {
-  return String(value || '').replace(/[%,]/g, '').trim()
+  return String(value || '').replace(/[%,"(){}\\]/g, '').trim()
 }
 
 export function usePublications(filters = {}) {
@@ -70,7 +70,12 @@ export function usePublications(filters = {}) {
       if (stableFilters.year) query = query.eq('year', Number(stableFilters.year))
       if (stableFilters.search) {
         const searchTerm = escapeSearchTerm(stableFilters.search)
-        if (searchTerm) query = query.or(`title.ilike.%${searchTerm}%,abstract.ilike.%${searchTerm}%`)
+        // Tags are stored lowercase and match whole tags (e.g. "royalties").
+        if (searchTerm) {
+          query = query.or(
+            `title.ilike.%${searchTerm}%,abstract.ilike.%${searchTerm}%,tags.cs.{"${searchTerm.toLowerCase()}"}`,
+          )
+        }
       }
 
       query = query
